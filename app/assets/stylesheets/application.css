@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+:root{
+  --strong_blue: #071e36;
+  --skye_blue: #2690d4;
+  --grey_blue: #57728D;
+}
+
+body{padding: 0px; margin: 0px;}
+
+.button{
+  min-width: 50px; 
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:active{
+  border: 2px solid white;
+  background: white;
+  border: black;
+  color: black;
+}
