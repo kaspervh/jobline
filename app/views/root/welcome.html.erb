@@ -1,0 +1,98 @@
+<div class="headder">
+  <div class="logo">
+    <h2>Jobline</h2>
+  </div>
+  <a href="#" class="button"><strong>Log ind</strong></a>
+</div>
+
+<div class="centerbox">
+  <div class="right-btn">></div>
+  <div class="left-btn"><</div>
+  <div class="wrapper">
+    <div class="menu">
+      <div class="description" id="four">
+        <h2>Giv sagsbehndleren overblik</h2>
+        <p>Slip for mistilliden fra jobcenteret. <br>
+          Dokumenter din jobsøgning ved at tilknytte <br> din sagsbehandler vores dashboard.
+        </p>
+        
+        <p>Dashboardet giver et hurtigt overblik over alt fra 
+          <br>
+          <br>
+  - hvor mange jobs du har søgt - <br>
+  - hvor mange jobs der - <br>
+  - hvor ofte du er til jobsamtale - <br>
+  - de seneste jobs du har søgt - <br>
+  - og meget mere - 
+        </p>
+        
+      </div>
+      <img src="https://www.geckoboard.com/assets/png/tv-dashboards-hero-img.png" alt="">
+      
+    </div>
+    <div class="menu">
+      <div class="description" id="three">
+        <h2>Udvid dine muligheder</h2>
+        <p>Gå aldrig glip af en mulighed. <br> imponer din fremtidige arbejdsplads <br> med et professionelt online CV 
+        </p>
+        <p>Efter oprettelse kand du skifte design <br> og farver som du har lyst</p>
+      </div>
+      <img src="http://cloud9design.biz/img/c511a539a5719867c2336860c31debe0.jpg" alt="">
+      
+    </div>
+    <div class="menu" id="">
+      <div class="description" id="two">
+        <h2>Søg og ansøg på samme tid</h2>
+        <p>Vores jobbank holder dig opdateret på nye jobs. <br> og du kan ansøge dem med et klik</p>
+        
+        <p>Bliv mindet om hvilke jobs du skal følge op på<br> via vores automatiske pipeline</p>
+      </div>
+      <img src="http://www.businessnewsdaily.com/images/i/000/012/245/original/jobsearch.jpg?1472048462" alt="">
+      
+    </div>
+    <div class="menu" >
+      <div class="description" id="signup">
+        <h2>Jobsøgning gjort enkelt</h2>
+        <p>gør det nemt at søge job. <br> med alle værktøjer <br> du plejer at bruge samlet et sted.</p>
+        <p>Spar tid og energi ved at tilmælde dig helt gratis </p>
+        <a href="#" class="button">Tilmæld som jobsøgende</a>
+        
+      </div>
+      <img src="https://betanews.com/wp-content/uploads/2016/09/Happy-PC-user.jpg" alt="">
+      
+    </div>
+  </div>
+</div>
+
+<div class="contactbox">
+  <div class="contact">
+    Tlf: 61279257 -
+    Email: kaspervhauschildt@protonmail.com
+  </div>
+</div>
+
+<script>
+  // sets a value to index if the slider can move or not
+  let sliderValue = 0;
+
+  // finds DOM elements
+  const rightBtn = document.querySelector('.right-btn');
+  const leftBtn = document.querySelector('.left-btn');
+  const wrapper = document.querySelector('.wrapper');
+
+  // checks if right button is clicked
+  // checks if slidervalue is less than 3
+  // mooves wrapper right to next child
+  rightBtn.addEventListener('click', function(){
+    if(sliderValue < 3){sliderValue++;}
+    wrapper.style.right = `${sliderValue}00%`
+  })
+
+  // checks if left button is clicked
+  // checks if slidervalue is less than 3
+  // mooves wrapper left to previous child
+  leftBtn.addEventListener('click', function(){
+    if(sliderValue > 0){sliderValue--;}
+    wrapper.style.right = `${sliderValue}00%`
+  })
+</script>

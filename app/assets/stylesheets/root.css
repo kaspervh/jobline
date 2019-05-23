@@ -1,0 +1,120 @@
+.headder{
+  background: var(--strong_blue);
+  width: 100vw;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 10px 20vw auto 20vw 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+headder a{
+  text-decoration: none;
+  color: white;
+}
+
+.headder .logo{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  color: white;
+}
+
+.headder .button{
+  grid-column-start: 4;
+}
+
+.centerbox{
+  height: 80vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.centerbox .wrapper{
+  height: 100%;
+  width:400%;
+  position: relative;
+  right: 00%;
+  transition: 0.4s ease-in;
+}
+
+.centerbox .wrapper .menu{
+  width: 25%;
+  height: 100%;
+  float: right;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.menu img{
+  height: 100%;
+  marign: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.menu .description{
+  height: 100%; 
+  width: 58%; 
+  background: var(--skye_blue);
+  position: absolute;
+  left: -3em;
+  z-index: 10;
+  transform: skew(10deg);
+  color: white;
+  display: grid; 
+  place-items: center;
+  text-align: center;
+}
+
+.description .button, h2, p{
+  margin:0px;
+  transform: skew(-10deg);
+}
+
+#two, #four{
+  background: var(--grey_blue);
+}
+
+
+.left-btn, .right-btn{
+  position: absolute;
+  z-index: 1000;
+  height: 80vh;
+  width: 2em;
+  background: #333;
+  opacity: 0.2;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color: white;
+  cursor: pointer;
+}
+
+.left-btn:hover, .right-btn:hover{
+  opacity: 0.4;
+}
+
+.centerbox .right-btn{
+  right: 0;
+}
+
+.centerbox .left-btn{
+  left: 0;
+}
+
+.contactbox{
+  height: 10vh; 
+  width: 100vw;
+  background: var(--strong_blue);
+  color: white; 
+  display: grid; 
+  grid-template-columns: 10px 20% auto  20% 10px;
+  justify-items: center;
+}
+
+.contactbox .contact{
+  grid-column-start: 3;
+  margin: auto;
+}
