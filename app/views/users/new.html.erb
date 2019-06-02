@@ -1,0 +1,25 @@
+<div class="left-box">
+  <h1>Tilmæld som jobsøgende</h1>
+
+
+  <%= simple_form_for :user do |f| %>
+    <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+    <%= f.input :last_name, label: false, placeholder: 'Efternavn:' %>
+    <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+    <%= f.input :password, label: false, placeholder: 'Kodeord:' %>
+    <%= f.input :password_confirmation, label: false, placeholder: 'Gentag kodeord:' %>
+    <%= f.submit name: 'Gem', value: 'Gem', class: 'submit'%>
+  <%end%>
+</div>
+
+<div class="right-box">
+  <div class="content">
+    <h1>Bruger betingelser</h1>
+    <strong>
+      <p> Hvis du skriver dig op til at bruge jobline, så acceptere du betingelserne foreskrevet nedenfor</p>
+      <br>
+      <p>Old boys club deploy we don't want to boil the ocean or we've got to manage that low hanging fruit nor fire up your browser this vendor is incompetent or let's not solutionize this right now parking lot it. High turnaround rate cloud strategy waste of resources, and regroup low hanging fruit and deliverables so imagineer. Not a hill to die on organic growth, but we want to see more charts upsell, please use "solutionise" instead of solution ideas! :) but shoot me an email. Cross sabers synergestic actionables and your work on this project has been really impactful, for i also believe it's important for every member to be involved and invested in our company and this is one way to do so so root-and-branch review drill down. Best practices it's about managing expectations but three-martini lunch, but due diligence, for turn the crank. Golden goose pull in ten extra bodies to help roll the tortoise globalize, and ping me yet run it up the flagpole, or red flag marketing computer development html roi feedback team website. </p>
+    </strong>
+  </div>
+</div>
+
