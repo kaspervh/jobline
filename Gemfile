@@ -55,7 +55,6 @@ end
 group :development, :test do
   gem "database_cleaner"
   gem "rspec-rails"
-  gem "simple_form"
 end
 
 
