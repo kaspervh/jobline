@@ -1,12 +1,12 @@
 <div class="left-box">
 
-  <%= simple_form_for :user, url: {action: 'create'} do %>
-    <%= text_field :first_name, '', placeholder: 'Fornavn:' %>
-    <%= text_field :last_name, '', placeholder: 'Efternavn:' %>
-    <%= text_field :email, '', placeholder: 'Email addrasse:' %>
-    <%= password_field :password, '', placeholder: 'Kodeord:' %>
-    <%= password_field :password_confirmation, '', placeholder: 'Gentag kodeord:' %>
-    <%= submit_tag 'Opret', class: 'submit'%>
+  <%= simple_form_for :user do |f| %>
+    <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+    <%= f.input :last_name, label: false , placeholder: 'Efternavn:' %>
+    <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+    <%= f.input :password, label: false, placeholder: 'Kodeord:' %>
+    <%= f.input :password_confirmation, label: false, placeholder: 'Gentag kodeord:' %>
+    <%= f.submit value: 'Opret', class: 'submit'  %>
   <%end%>
 </div>
 
