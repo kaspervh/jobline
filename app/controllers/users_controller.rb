@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   layout 'forms'
 
   def new
+    @user = User.new
   end
 
   def create

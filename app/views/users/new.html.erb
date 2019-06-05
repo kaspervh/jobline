@@ -1,7 +1,6 @@
 <div class="left-box">
 
-
-  <%= form_for :user do  %>
+  <%= simple_form_for :user, url: {action: 'create'} do %>
     <%= text_field :first_name, '', placeholder: 'Fornavn:' %>
     <%= text_field :last_name, '', placeholder: 'Efternavn:' %>
     <%= text_field :email, '', placeholder: 'Email addrasse:' %>
