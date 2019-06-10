@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="nav-wrapper">
+        <div class="nav">
+          <div class="logo">
+            <h2><%= link_to 'Jobline', root_path %></h2>
+          </div>
+          <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
+          <%= link_to 'Job Bank', '#', class: 'nav-button' %>
+          <%= link_to 'Online cv', '#', class: 'nav-button' %>
+
+          <%= link_to 'Instillinger', '#', class: 'nav-button' %>
+
+          <%= link_to 'Log ud', '/logout', class: 'nav-button' %>
+        </div>
+      </div>
+
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div> 
   </body>
 </html>

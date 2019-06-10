@@ -1,3 +1,32 @@
+:root{
+  --strong_blue: #071e36;
+  --skye_blue: #2690d4;
+  --grey_blue: #57728D;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.button{
+  min-width: 50px; 
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:active{
+  border: 2px solid white;
+  background: white;
+  border: black;
+  color: black;
+}
+
 .headder{
   background: var(--strong_blue);
   width: 100vw;
@@ -8,7 +37,7 @@
   align-items: center;
 }
 
-headder a{
+.headder a{
   text-decoration: none;
   color: white;
 }
