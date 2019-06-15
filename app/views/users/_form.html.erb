@@ -1,0 +1,8 @@
+<%= simple_form_for :user do |f| %>
+    <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+    <%= f.input :last_name, label: false , placeholder: 'Efternavn:' %>
+    <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+    <%= f.input :password, label: false, placeholder: 'Kodeord:' %>
+    <%= f.input :password_confirmation, label: false, placeholder: 'Gentag kodeord:' %>
+    <%= f.submit value: 'Opret', class: 'submit'  %>
+  <%end%>

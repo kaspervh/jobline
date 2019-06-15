@@ -1,0 +1,31 @@
+<div class="headline">
+  <h1>Bruger indstillinger</h1>
+</div>
+
+<div class="colapse-box">
+  <div class="colapse-header">
+    <input type="checkbox" class="colapse-check">
+    <h4>Rediger bruger oplysninger</h4>
+  </div>
+  <div class="content">
+    <%= render 'users/form' %>
+  </div>
+</div>
+
+<script>
+  const colapseBoxes = document.querySelectorAll('.colapse-box');
+
+  console.log(colapseBoxes.length);
+
+  for(let i = 0; i < colapseBoxes.length; i++ ){
+    let colapseCheck = colapseBoxes[i].querySelector('.colapse-check')
+    colapseBoxes[i].querySelector('.colapse-header').addEventListener('click', function(){
+      colapseCheck.click();
+      if(colapseCheck.checked){
+        colapseBoxes[i].querySelector('.content').style.display = 'block';
+      }else{
+        colapseBoxes[i].querySelector('.content').style.display = 'none';
+      }
+    });
+  }
+</script>
