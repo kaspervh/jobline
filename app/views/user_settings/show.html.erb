@@ -1,0 +1,50 @@
+<div class="headline">
+  <h1>Bruger indstillinger</h1>
+</div>
+
+<div class="inline">
+  <div class="colapse-box">
+    <div class="colapse-header">
+      <input type="checkbox" class="colapse-check">
+      <h4>Rediger bruger oplysninger</h4>
+    </div>
+    <div class="content">
+      <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
+        <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+        <%= f.input :last_name, label: false , placeholder: 'Efternavn:' %>
+        <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+        <%= f.submit value: 'Gem', class: 'submit'  %>
+      <%end%>
+    </div>
+  </div>
+
+  <div class="colapse-box">
+    <div class="colapse-header">
+      <input type="checkbox" class="colapse-check">
+      <h4>Skift Kodeord</h4>
+    </div>
+    <div class="content">
+      <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
+        <%= f.input :password, label: false, placeholder: 'Kodeord:' %>
+        <%= f.input :password_confirmation, label: false, placeholder: 'Gentag kodeord:' %>
+        <%= f.submit value: 'Gem', class: 'submit'  %>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<script>
+  const colapseBoxes = document.querySelectorAll('.colapse-box').forEach(function(element){
+    let colapseCheck = element.querySelector('.colapse-check')
+    element.querySelector('.colapse-header').addEventListener('click', function(){
+      colapseCheck.click();
+      if(colapseCheck.checked){
+        element.querySelector('.content').style.display = 'flex';
+        element.querySelector('.content').style.justifyContent = 'center';
+      }else{
+        element.querySelector('.content').style.display = 'none';
+      }
+    })
+  })
+
+</script>

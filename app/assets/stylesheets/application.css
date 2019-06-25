@@ -82,3 +82,8 @@ body{padding: 0px; margin: 0px;}
   text-align: center;
 }
 
+.inline{
+  width:100%;
+  display: inline-grid;
+  grid-template-columns: repeat(4, 1fr);
+}

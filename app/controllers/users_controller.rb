@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def update
+    @user = User.find(params[:id])
+
+    @user.update_attributes(user_params)
+    redirect_back(fallback_location: root_path)
+  end
+
+  
+
   private
 
   def user_params
