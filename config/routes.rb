@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   get 'user_settings/show'
 
-  
+  resources :contacts
 end

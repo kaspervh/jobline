@@ -6,7 +6,7 @@
   <div class="colapse-box">
     <div class="colapse-header">
       <input type="checkbox" class="colapse-check">
-      <h4>Rediger bruger oplysninger</h4>
+      <h4>Rediger mine oplysninger</h4>
     </div>
     <div class="content">
       <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
@@ -21,7 +21,7 @@
   <div class="colapse-box">
     <div class="colapse-header">
       <input type="checkbox" class="colapse-check">
-      <h4>Skift Kodeord</h4>
+      <h4>Skift mit kodeord</h4>
     </div>
     <div class="content">
       <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
@@ -31,10 +31,29 @@
       <%end%>
     </div>
   </div>
+
+  <div class="colapse-box">
+    <div class="colapse-header">
+      <input type="checkbox" class="colapse-check">
+      <h4>Tilføj kontak person</h4>
+    </div>
+    <div class="content">
+      <%= simple_form_for :contact, url: contacts_path, method: 'create' do |f| %>
+        <%= f.input :user_id, as: :hidden, input_html:{value: current_user.id} %>  
+        <%= f.input :name, label: false, placeholder: 'Navn' %>
+        <%= f.input :position, label: false, placeholder: 'Proffesion' %>
+        <%= f.input :email, label: false, placeholder: 'Email addresse' %>
+        <%= f.input :phone, label: false, placeholder: 'Telefon' %>
+        <%= f.submit value: 'Gem', class: 'submit'%>
+      <% end %>
+    </div>
+  </div>
 </div>
 
+
+
 <script>
-  const colapseBoxes = document.querySelectorAll('.colapse-box').forEach(function(element){
+  document.querySelectorAll('.colapse-box').forEach(function(element){
     let colapseCheck = element.querySelector('.colapse-check')
     element.querySelector('.colapse-header').addEventListener('click', function(){
       colapseCheck.click();

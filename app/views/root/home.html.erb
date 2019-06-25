@@ -1,3 +1,22 @@
 <div class="headline">
-	<h1>Dashboard</h1>
+  <h1>Dashboard</h1>
+</div>
+
+<div class="headline">
+  <strong>Kontaktpersoner</strong>
+</div>
+<div class="inline">
+  <% @contacts.each  do |contact| %>
+    <div class="contact-box">
+      <div class="contact-headline">
+        <%= "#{contact.position} - #{contact.name}" %>
+      </div>
+      <%= "E-mail: #{contact.email}" %>
+      <br>
+      <%= "Tlf: #{contact.phone}"%>
+      <br>
+      <br>
+      <%= link_to 'Slet kontakt', contact, method: :delete, class: 'btn btn-delete'%>
+    </div>
+  <%end%>
 </div>
