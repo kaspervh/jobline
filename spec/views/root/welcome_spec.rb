@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'test root welcome page', type: :feature do
   before(:each) do
-    visit root_path
+    visit welcome_path
   end
 
   scenario 'visit page ', js: true do
