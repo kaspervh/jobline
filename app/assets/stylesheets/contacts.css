@@ -1,0 +1,17 @@
+.contact-box{
+  height: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-headline{
+  width: 100%;
+  background: var(--skye_blue);
+  color: white;
+  text-align:  center;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+

@@ -66,7 +66,7 @@ body{padding: 0px; margin: 0px;}
   background: var(--strong_blue);
 }
 
-.navbutton:active{
+.nav-button:active{
   color: var(--skye_blue);
   background: white;
 }
@@ -83,7 +83,22 @@ body{padding: 0px; margin: 0px;}
 }
 
 .inline{
-  width:100%;
-  display: inline-grid;
+  width: 100%;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.btn{
+  width: 100px;
+  display: block;
+  background: var(--skye_blue);
+  padding: 3px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-delete{
+  background: var(--grey_blue)
 }
