@@ -47,6 +47,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    awesome_print (1.8.0)
     bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.4)
@@ -140,9 +141,6 @@ GEM
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack_session_access (0.2.0)
-      builder (>= 2.0.0)
-      rack (>= 1.0.0)
     rails (5.2.3)
       actioncable (= 5.2.3)
       actionmailer (= 5.2.3)
@@ -249,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
@@ -263,7 +262,6 @@ DEPENDENCIES
   mechanize (~> 2.7, >= 2.7.6)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
-  rack_session_access
   rails (~> 5.2.3)
   rspec-rails
   sass-rails (~> 5.0)

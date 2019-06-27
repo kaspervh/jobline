@@ -30,7 +30,7 @@ gem 'mechanize', '~> 2.7', '>= 2.7.6'
 gem 'csv'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'awesome_print'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'simple_form'
