@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    redirect_to '/login' unless current_user
+    redirect_to '/welcome' unless current_user
   end
   helper_method :authorize
 end
