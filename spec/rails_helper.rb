@@ -69,6 +69,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+  config.include Capybara::DSL
 
 
   # configutr database cleaner
@@ -96,3 +97,9 @@ def dont_expect_page_content(params)
   params.each{|param| expect(page).to_not have_content param.to_s}
 end
 
+def login(user)
+  visit login_path
+  fill_in 'email', with: user.email
+  fill_in 'password', with: user.password
+  click_on 'Log ind'
+end

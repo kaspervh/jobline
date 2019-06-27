@@ -1,10 +1,12 @@
 class RootController < ApplicationController
   layout 'welcome', only: [:welcome]
+
+  before_action :authorize, only: [:home]
+
   def welcome
   end
 
   def home
-    redirect_to welcome_path unless current_user
 
     @contacts = current_user.contacts
   end

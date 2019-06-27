@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   layout 'forms'
+
+  before_action :authorize, only:[:destroy]
   
   def new
   end

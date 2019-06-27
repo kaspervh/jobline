@@ -9,6 +9,7 @@ FactoryBot.define do
   end
 
   factory :contact do
+    user_id 1
     name "soren hald"
     position "job cunsultant"
     email "sh@example.com"
