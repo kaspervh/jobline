@@ -50,7 +50,7 @@ RSpec.describe 'create user', type: :feature do
     fill_in 'user[password]', with: 'diller'
     fill_in 'user[password_confirmation]', with: 'diller'
     click_on 'Opret'
-    expect(current_path).to eq welcome_path
+    expect(current_path).to eq login_path
     fail if User.last.first_name != 'john'
   end
 
