@@ -10,6 +10,8 @@ RSpec.describe 'sign in user', type: :feature do
     expect(current_path).to eq welcome_path
   end
 
+  #helper methods
+
   def login
     fill_in 'email', with: @user.email
     fill_in 'password', with: @user.password
