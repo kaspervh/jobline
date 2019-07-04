@@ -1,0 +1,68 @@
+<div class="nav-wrapper">
+  <div class="nav">
+    <div class="logo">
+      <h2><%= link_to 'Jobline', root_path %></h2>
+    </div>
+
+    <div class="modal-wrapper">
+      <%= render partial: 'shared/modals/modal_edit_user_settings' %>
+      <%= render partial: 'shared/modals/modal_edit_user_password' %>
+      <%= render partial: 'shared/modals/add_contact'%>
+
+    </div>
+    <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
+
+    <div class="fold-wrapper">
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Job</div>
+      <div class="fold-content">
+        <div class="sub-nav-button">Check jobbank (-)</div>
+        <div class="sub-nav-button">Repporter Jobsøgning (-)</div>
+      </div>
+    </div>
+
+    <div class="fold-wrapper">
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Online cv</div>
+      <div class="fold-content">
+        <div class="sub-nav-button">online cv(-)</div>
+        <div class="sub-nav-button">Rediger cv (-)</div>
+        <div class="sub-nav-button">Se cv (-)</div>
+      </div>
+    </div>
+
+
+    <div class="fold-wrapper" >
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Indstillinger</div>
+      <div class="fold-content">
+        <div class="sub-nav-button" onclick="openUserSettings()">
+          Rediger oplysninger
+        </div>
+        <div class="sub-nav-button" onclick="openUserPassword()">Skift Kodeord</div>
+        <div class="sub-nav-button" onclick="addContact()">Tilføj kontaktperson</div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Log ud', '/logout', class: 'nav-button logout' %>
+</div>
+
+<script>
+  var navFolds = document.querySelectorAll('#nav-fold');
+
+  navFolds.forEach(function(checkBox){
+
+    console.log(checkBox.checked)
+
+    const foldWrapper = checkBox.parentNode;
+    foldWrapper.querySelector('.nav-button').addEventListener('click', function(){ 
+      checkBox.click();
+
+      if(checkBox.checked){
+        foldWrapper.querySelector('.fold-content').style.display = 'block';
+      }else{
+        foldWrapper.querySelector('.fold-content').style.display = 'none';
+      }
+    });
+  });
+</script>

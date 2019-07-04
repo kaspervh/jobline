@@ -10,7 +10,5 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   post 'users/update'
 
-  get 'user_settings/show'
-
   resources :contacts
 end
