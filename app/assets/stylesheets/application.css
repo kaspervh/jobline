@@ -31,7 +31,7 @@ body{padding: 0px; margin: 0px;}
 }
 
 
-/* handles content */
+/* handles content next to navbar and will only contain palcement css*/
 
 .content{
   overflow-x: auto;
