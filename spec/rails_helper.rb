@@ -90,7 +90,7 @@ end
 
 # to avoid writing many expect(page).to have_content and the opposite
 def expect_page_content(params)
-  params.each{|param| expect(page).to have_content param.to_s}
+  params.each{|param| expect(page).to have_content param}
 end 
 
 def dont_expect_page_content(params)
