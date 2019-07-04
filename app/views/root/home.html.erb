@@ -2,6 +2,8 @@
   <h1>Dashboard</h1>
 </div>
 
+
+<!--will display a list of contacts if current user has any contacts-->
 <% if @contacts.any? %>
   <div class="headline">
     <strong>Kontaktpersoner</strong>
@@ -12,10 +14,16 @@
         <div class="contact-headline">
           <%= "#{contact.position} - #{contact.name}" %>
         </div>
-        <%= "E-mail: #{contact.email}" %>
         <br>
-        <%= "Tlf: #{contact.phone}"%>
-        <br>
+        <% if contact.email.present? %>
+          <%= "E-mail: #{contact.email}"  %>
+          <br>
+        <%end%>
+        <% if contact.phone.present? %>
+          <%= "Tlf: #{contact.phone}"%>
+          <br>
+        <%end%>
+
         <br>
         <%= link_to 'Slet kontakt', contact, method: :delete, class: 'btn btn-delete'%>
       </div>

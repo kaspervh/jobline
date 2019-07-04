@@ -1,4 +1,4 @@
-/* handles navbar in */
+/* handles navbar */
 
 .nav{
   height: 100vh;
@@ -65,6 +65,8 @@
   background: var(--strong_blue);
 }
 
+
+/* haldels the logut buttons position and nothing else */
 .logout{
   position: relative;
   bottom: 35px;
