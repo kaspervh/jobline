@@ -1,0 +1,27 @@
+<div class="modal-background" id="user-settings-modal">
+  <div class="modal-box">
+    <div class="modal-headder">
+      <div class="close-modal">&times</div>
+      <h1>Rediger brugeroplysninger</h1>
+    </div>
+    <div class="modal-form">
+
+      <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
+        <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+        <%= f.input :last_name, label: false , placeholder: 'Efternavn:' %>
+        <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+        <%= f.submit value: 'Gem', class: 'submit'  %>
+      <%end%>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // will open modal when onclick event in navbar triggers
+  function openUserSettings(){
+    document.querySelector('#user-settings-modal').style.display = 'block';
+  }
+</script>

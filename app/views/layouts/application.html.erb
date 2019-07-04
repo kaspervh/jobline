@@ -11,20 +11,7 @@
 
   <body>
     <div class="wrapper">
-      <div class="nav-wrapper">
-        <div class="nav">
-          <div class="logo">
-            <h2><%= link_to 'Jobline', root_path %></h2>
-          </div>
-          <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
-          <%= link_to 'Job Bank', '#', class: 'nav-button' %>
-          <%= link_to 'Online cv', '#', class: 'nav-button' %>
-
-          <%= link_to 'Instillinger', user_settings_show_path, class: 'nav-button' %>
-
-          <%= link_to 'Log ud', '/logout', class: 'nav-button' %>
-        </div>
-      </div>
+      <%= render partial: 'shared/navbar' %>
 
       <div class="content">
         <%= yield %>
@@ -32,3 +19,13 @@
     </div> 
   </body>
 </html>
+
+
+<script>
+  // will hide modals away when close button is pressed
+  document.querySelectorAll('.close-modal').forEach(function(closeModal){
+    closeModal.addEventListener('click', function(){
+      closeModal.parentElement.parentElement.parentElement.style.display = 'none';
+    })
+  })
+</script>

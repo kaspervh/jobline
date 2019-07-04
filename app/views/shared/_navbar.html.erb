@@ -1,0 +1,80 @@
+<div class="nav-wrapper">
+  <div class="nav">
+    <div class="logo">
+      <h2><%= link_to 'Jobline', root_path %></h2>
+    </div>
+
+    <!--renders modals for use in every page-->
+    <div class="modal-wrapper">
+      <%= render partial: 'shared/modals/edit_user_settings' %>
+      <%= render partial: 'shared/modals/edit_user_password' %>
+      <%= render partial: 'shared/modals/add_contact'%>
+    </div>
+
+    <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
+
+    <div class="fold-wrapper">
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Job</div>
+      <div class="fold-content">
+        <div class="sub-nav-button">Check jobbank (-)</div>
+        <div class="sub-nav-button">Repporter Jobsøgning (-)</div>
+      </div>
+    </div>
+
+    <div class="fold-wrapper">
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Online cv</div>
+      <div class="fold-content">
+        <div class="sub-nav-button">online cv(-)</div>
+        <div class="sub-nav-button">Rediger cv (-)</div>
+        <div class="sub-nav-button">Se cv (-)</div>
+      </div>
+    </div>
+
+
+    <div class="fold-wrapper" >
+      <input type="checkbox" id="nav-fold">
+      <div class="nav-button">Indstillinger</div>
+      <div class="fold-content">
+        <!--will trigger onclick event for edit_user_settings in shared/modals folder-->
+        <div class="sub-nav-button" onclick="openUserSettings()">
+          Rediger oplysninger
+        </div>
+        <!--will trigger onclick event for edit_user_password in shared/modals folder-->
+        <div class="sub-nav-button" onclick="openUserPassword()">Skift Kodeord</div>
+        <!--will trigger onclick event for add_contact in shared/modals folder-->
+        <div class="sub-nav-button" onclick="addContact()">Tilføj kontaktperson</div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Log ud', '/logout', class: 'nav-button logout' %>
+</div>
+
+
+<script>
+  // code will make navbar elements foldabole
+
+  //makes array of every nav-fold checkbox
+  var navFolds = document.querySelectorAll('#nav-fold');
+
+  //itterates over each checkbox
+  navFolds.forEach(function(checkBox){
+    // defines witch fold wrapper should be unfolded when clicked
+    const foldWrapper = checkBox.parentNode;
+
+    // adds an event listener to the nav button to check if its clicked
+    foldWrapper.querySelector('.nav-button').addEventListener('click', function(){ 
+      //when nav button is clicked checkbox get clicked on as well.
+      checkBox.click();
+
+      if(checkBox.checked){
+        // if checkbox is checked fold-content is visible 
+        foldWrapper.querySelector('.fold-content').style.display = 'block';
+      }else{
+        // if checkbox is not checked fold content is invisible
+        foldWrapper.querySelector('.fold-content').style.display = 'none';
+      }
+    });
+  });
+</script>

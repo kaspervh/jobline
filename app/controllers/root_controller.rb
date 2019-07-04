@@ -7,7 +7,6 @@ class RootController < ApplicationController
   end
 
   def home
-
     @contacts = current_user.contacts
   end
 end
