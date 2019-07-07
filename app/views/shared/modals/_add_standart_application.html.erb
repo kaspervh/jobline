@@ -1,0 +1,37 @@
+<div class="modal-background" id="add-standart-application-modal">
+  <div class="modal-box">
+    <div class="modal-headder">
+      <div class="close-modal">&times</div>
+      <h1>Tilføj standart ansøgning</h1>
+    </div>
+    <div class="modal-container">
+      <div class="modal-description">
+        <h5>Tilføj standart ansøgning</h5>
+        <p>skriv din ansøgning her, denne ansøgning skal være en generel skabelon for fremtidige jobansøgninger du sender gennem jobline.</p>
+
+        <p> det vil være muligt på et senere tidspunkt at redigere din ansøgning</p>
+      </div>
+
+
+      <%= simple_form_for :user_standart_application, url: user_standart_applications_path, method: 'create' do |f| %>
+
+        <%= f.input :user_id, as: :hidden, placeholder: 'bruger id', label: false, input_html:{value: current_user.id}%>
+        <%= f.input :application, label: false %>
+
+        <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
+
+      <%end%>
+        
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // will open modal when onclick event in navbar triggers
+  function openAddStandartApplication(){
+    document.querySelector('#add-standart-application-modal').style.display = 'block';
+  }
+</script>

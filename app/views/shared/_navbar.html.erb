@@ -9,6 +9,9 @@
       <%= render partial: 'shared/modals/edit_user_settings' %>
       <%= render partial: 'shared/modals/edit_user_password' %>
       <%= render partial: 'shared/modals/add_contact'%>
+      <%= render partial: 'shared/modals/add_standart_application'%>
+      <%= render partial: 'shared/modals/edit_standart_application'%>
+
     </div>
 
     <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
@@ -19,6 +22,11 @@
       <div class="fold-content">
         <div class="sub-nav-button">Check jobbank (-)</div>
         <div class="sub-nav-button">Repporter Jobsøgning (-)</div>
+        <% if current_user.standart_application %>
+          <div class="sub-nav-button" onclick="openEditStandartApplication()">Rediger standart ansøgning</div>
+        <%else%>
+          <div class="sub-nav-button" onclick="openAddStandartApplication()">Tilføj standart ansøgning</div>
+        <% end %>
       </div>
     </div>
 

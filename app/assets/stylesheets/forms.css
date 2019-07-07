@@ -74,7 +74,7 @@ form input:focus{
 
 .submit{
   height: 30px;
-  width: 70px;
+
   border-radius: 10px;
   background: var(--grey_blue);
   color: white;

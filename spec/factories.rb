@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :user_standart_application, class: 'User::StandartApplication' do
+    user_id 1
+    application "MyText"
+  end
   factory :user do 
     first_name 'john'
     last_name 'doe'
