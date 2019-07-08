@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   post 'users/update'
 
-  resources :contacts, only: [:create]
+  resources :contacts, only: [:create, :destroy]
 
   namespace :user do
     resources :standart_applications, only: [:create, :update]
