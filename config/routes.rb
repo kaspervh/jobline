@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'root#home'
   get '/welcome' =>'root#welcome'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -10,5 +11,11 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   post 'users/update'
 
-  resources :contacts
+  resources :contacts, only: [:create]
+
+  namespace :user do
+    resources :standart_applications, only: [:create, :update]
+  end
+
+
 end
