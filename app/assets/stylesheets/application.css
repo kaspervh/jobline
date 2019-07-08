@@ -62,3 +62,9 @@ body{padding: 0px; margin: 0px;}
 .btn-delete{
   background: var(--grey_blue)
 }
+
+/* styles the action text/ trix editor */
+
+.trix-content{
+  width: 90%;
+}

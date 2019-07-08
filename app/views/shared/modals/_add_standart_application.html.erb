@@ -13,10 +13,10 @@
       </div>
 
 
-      <%= simple_form_for :user_standart_application, url: user_standart_applications_path, method: 'create' do |f| %>
+      <%= form_for :user_standart_application, url: user_standart_applications_path, method: 'create' do |f| %>
 
-        <%= f.input :user_id, as: :hidden, placeholder: 'bruger id', label: false, input_html:{value: current_user.id}%>
-        <%= f.input :application, label: false %>
+        <%= f.hidden_field :user_id, as: :hidden, placeholder: 'bruger id', value: current_user.id%>
+        <%= f.rich_text_area :content, label: false %>
 
         <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
 

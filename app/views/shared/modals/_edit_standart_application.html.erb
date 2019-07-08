@@ -11,12 +11,15 @@
       </div>
 
       <% application = current_user.standart_application %>
-      <%= simple_form_for :user_standart_application, url: user_standart_application_path(id: application.id), method: 'put' do |f| %>
+      <% if application.present? %>
+        <!-- need to run it as a standart form becuse simple form does not support actiontext yet -->
+        <%= form_for application, action: 'update', method: 'patch' do |f| %>
 
-        <%= f.input :user_id, as: :hidden, placeholder: 'bruger id', label: false, input_html:{value: current_user.id}%>
-        <%= f.input :application, label: false, input_html:{value: application.application} %>
+        <%= f.hidden_field :user_id, as: :hidden, placeholder: 'bruger id', value: current_user.id%>
+        <%= f.rich_text_area :content%>
+
         <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
-
+        <%end%>
       <%end%>
         
 
