@@ -30,6 +30,15 @@ body{padding: 0px; margin: 0px;}
   grid-template-columns: 15% auto;
 }
 
+.box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* handles content next to navbar and will only contain palcement css*/
 
@@ -45,7 +54,8 @@ body{padding: 0px; margin: 0px;}
 .inline{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
 }
 
 .btn{

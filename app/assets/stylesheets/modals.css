@@ -69,3 +69,15 @@
   padding-bottom: 5px;
   border-bottom: 3px solid var(--strong_blue);
 }
+
+.modal-inline{
+  width: 100%;
+  display: grid; 
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#radio{
+  transition: none;
+  width: 20px;
+}
