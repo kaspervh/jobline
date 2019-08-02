@@ -5,12 +5,13 @@
 
 <!--will display a list of contacts if current user has any contacts should allways be at the bootom of the page-->
 <% if @contacts.any? %>
+  
   <div class="headline">
     <strong>Kontaktpersoner</strong>
   </div>
   <div class="inline">
     <% @contacts.each  do |contact| %>
-      <div class="contact-box">
+      <div class="contact-box" style="height: 110%">
         <div class="contact-headline">
           <%= "#{contact.position} - #{contact.name}" %>
         </div>

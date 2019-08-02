@@ -1,5 +1,20 @@
 
 FactoryBot.define do
+  factory :application_status do
+    name "MyString"
+  end
+  factory :application_type do
+    name "MyString"
+  end
+  factory :applied_job do
+    user_id 1
+    job_id 1
+    job_title "MyString"
+    company_name "MyString"
+    application "MyText"
+    application_type_id 1
+    application_status_id 1
+  end
   factory :user_standart_application, class: 'User::StandartApplication' do
     user_id 1
     application "MyText"

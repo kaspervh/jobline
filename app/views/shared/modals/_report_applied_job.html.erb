@@ -1,0 +1,65 @@
+<div class="modal-background" id="report-applied-job-modal">
+  <div class="modal-box">
+    <div class="modal-headder">
+      <div class="close-modal">&times</div>
+      <h1>Repporter ansøgt job</h1>
+    </div>
+    <div class="modal-container">
+      <div class="modal-description">
+        <p>Hvis du har søgt et job uden for jobline kan du repportere dette her.</p>
+      </div>
+
+      <%= form_for :applied_job, url: applied_jobs_path do |f| %>
+
+        <%= f.hidden_field :user_id, as: :hidden, placeholder: 'bruger id', value: current_user.id%>
+        <%= f.text_field :job_title, placeholder: 'Job titel' %>
+        <%= f.text_field :company_name, placeholder: 'Firma navn' %>
+        
+        <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge den ind her' %>
+        <br>
+        <br>
+
+        
+        <div class="modal-description">
+          <strong>hvordan er jobbet søgt?</strong>
+          <p>Har du ansøgt personligt, telefonisk eller har du afleveret en ansøgning?</p>
+          <p>noter det her så det kan blive medregnet i din jobsøgningsstatistik</p>
+        </div>
+        <div class="modal-inline">
+          <% ApplicationType.all.each do |at| %>
+          <div class="box">
+            <%= f.label at.name %>
+            <%= f.radio_button :application_type_id, at.id, id: "radio"%>
+          </div>
+          <%end%>
+        </div>
+
+        <div class="modal-description">
+          <strong>Hvad er status for din ansøgning?</strong>
+        </div>
+
+        <div class="modal-inline">
+          <%ApplicationStatus.all.each do |as| %>
+            <div class="box">
+              <%= f.label as.name %>
+              <%= f.radio_button :application_status_id, as.id %>
+            </div> 
+          <%end%>
+        </div>
+
+        <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
+      <%end%>
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // will open modal when onclick event in navbar triggers
+  function openReportAppliedJob(){
+    document.querySelector('#report-applied-job-modal').style.display = 'block';
+  }
+</script>

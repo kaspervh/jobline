@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_231422) do
+ActiveRecord::Schema.define(version: 2019_07_30_125738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,30 +46,36 @@ ActiveRecord::Schema.define(version: 2019_07_07_231422) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "application_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "application_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "applied_jobs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "job_id"
+    t.string "job_title"
+    t.string "company_name"
+    t.text "application"
+    t.integer "application_type_id"
+    t.integer "application_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.string "position"
     t.string "email"
     t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "standart_applications", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "application"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_contacts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.string "ocupation"
-    t.string "email"
-    t.string "phone"
-    t.string "mobile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
