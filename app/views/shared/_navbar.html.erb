@@ -12,7 +12,6 @@
       <%= render partial: 'shared/modals/report_applied_job' %>
       <%= render partial: 'shared/modals/add_standart_application'%>
       <%= render partial: 'shared/modals/edit_standart_application'%>
-
     </div>
 
     <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
@@ -22,7 +21,10 @@
       <div class="nav-button">Job</div>
       <div class="fold-content">
         <div class="sub-nav-button">Check jobbank (-)</div>
-        <div class="sub-nav-button" onclick="openReportAppliedJob()">Repporter Jobsøgning (-)</div>
+        <div class="sub-nav-button" onclick="openReportAppliedJob()">Repporter Jobsøgning</div>
+        <% if current_user.applied_jobs.any? %>
+            <%= link_to 'Vis søgte jobs', applied_jobs_path, class: 'sub-nav-button' %>
+        <%end%>
         <% if current_user.standart_application %>
           <div class="sub-nav-button" onclick="openEditStandartApplication()">Rediger standart ansøgning</div>
         <%else%>

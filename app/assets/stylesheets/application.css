@@ -39,6 +39,9 @@ body{padding: 0px; margin: 0px;}
   align-items: center;
 }
 
+a:visited{
+  color: inherit;
+}
 
 /* handles content next to navbar and will only contain palcement css*/
 
@@ -51,11 +54,22 @@ body{padding: 0px; margin: 0px;}
   text-align: center;
 }
 
+.center{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
 .inline{
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 100px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
 }
 
 .btn{
@@ -70,7 +84,7 @@ body{padding: 0px; margin: 0px;}
 }
 
 .btn-delete{
-  background: var(--grey_blue)
+  background: red;
 }
 
 /* styles the action text/ trix editor */
@@ -78,3 +92,23 @@ body{padding: 0px; margin: 0px;}
 .trix-content{
   width: 90%;
 }
+
+/* styles the tables */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background: var(--skye_blue);
+  color: white;
+}
+

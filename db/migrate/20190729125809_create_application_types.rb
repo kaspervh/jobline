@@ -6,9 +6,9 @@ class CreateApplicationTypes < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    ApplicationType.where(name: 'telefonisk').first_or_create
-    ApplicationType.where(name: 'personligt').first_or_create
-    ApplicationType.where(name: 'gennem ansøgning').first_or_create
+    ApplicationType.where(name: 'Telefonisk').first_or_create
+    ApplicationType.where(name: 'Personligt').first_or_create
+    ApplicationType.where(name: 'Skrifligt').first_or_create
 
   end
 end

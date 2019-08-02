@@ -1,39 +1,118 @@
 <p id="notice"><%= notice %></p>
+<div class="content">
+  <div class="center">
+    
+    <% if @interview.any? %>
+      <h1>Job interview</h1>
 
-<h1>Applied Jobs</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Job titel</th>
+            <th>Firma navn</th>
+            <th>Application type</th>
+            <th>Application status</th>
+            <th>Opdater</th>
+            <th>Slet</th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Job</th>
-      <th>Job title</th>
-      <th>Company name</th>
-      <th>Application</th>
-      <th>Application type</th>
-      <th>Application status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tbody>
+          <% @interview.each do |applied_job| %>
+            <tr>
+              <td><%= applied_job.job_title %></td>
+              <td><%= applied_job.company_name %></td>
+              <td><%= applied_job.application_type_id %></td>
+              <td><%= applied_job.application_status_id %></td>
+              <td>
+                <%= simple_form_for applied_job do |f| %>
+                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                  <%= f.submit value: 'Gem', class: 'submit' %>
+                <%end%>
+              </td>
+              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Are you sure?' }, class: ' btn btn-delete' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <tbody>
-    <% @applied_jobs.each do |applied_job| %>
-      <tr>
-        <td><%= applied_job.user_id %></td>
-        <td><%= applied_job.job_id %></td>
-        <td><%= applied_job.job_title %></td>
-        <td><%= applied_job.company_name %></td>
-        <td><%= applied_job.application %></td>
-        <td><%= applied_job.application_type_id %></td>
-        <td><%= applied_job.application_status_id %></td>
-        <td><%= link_to 'Show', applied_job %></td>
-        <td><%= link_to 'Edit', edit_applied_job_path(applied_job) %></td>
-        <td><%= link_to 'Destroy', applied_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <br>
+    <%end%>
 
-<br>
+    <% if @awating.any? %>
+      <h1>Afventer svar</h1>
 
-<%= link_to 'New Applied Job', new_applied_job_path %>
+      <table>
+        <thead>
+          <tr>
+            <th>Job titel</th>
+            <th>Firma navn</th>
+            <th>Application type</th>
+            <th>Application status</th>
+            <th>Opdater</th>
+            <th>Slet</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @awating.each do |applied_job| %>
+            <tr>
+              <td><%= applied_job.job_title %></td>
+              <td><%= applied_job.company_name %></td>
+              <td><%= applied_job.application_type.name %></td>
+              <td><%= applied_job.application_status.name %></td>
+              <td>
+                <%= simple_form_for applied_job do |f| %>
+                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                  <%= f.submit value: 'Gem', class: 'submit'%>
+                <%end%>
+              </td>
+              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-delete' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+    <%end%>
+
+    <% if @rejected.any? %>
+      <h1> Afviste ansøgninger</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Job titel</th>
+            <th>Firma navn</th>
+            <th>Application type</th>
+            <th>Application status</th>
+            <th>Opdater</th>
+            <th>Slet</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @rejected.each do |applied_job| %>
+            <tr>
+              <td><%= applied_job.job_title %></td>
+              <td><%= applied_job.company_name %></td>
+              <td><%= applied_job.application_type_id %></td>
+              <td><%= applied_job.application_status_id %></td>
+              <td>
+                <%= simple_form_for applied_job do |f| %>
+                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                  <%= f.submit value: 'Gem', class: 'submit' %>
+                <%end%>
+              </td>
+              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-delete' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+    <%end%>
+
+  </div>
+
+</div>

@@ -1,18 +1,30 @@
 /* handles navbar */
 
 .nav{
+  min-width: 120px;
   height: 100vh;
   grid-column-start: 1;
   grid-column-end: 2;
   background: var(--skye_blue);
 }
 
-.logo{
+.nav a{
+  color: white;
+}
+
+
+.nav a:visited{
+  color: inherit;
+}
+
+.nav .logo{
   width: 100%;
   color: white;
   text-align: center;
   font-size: 20px;
   margin-bottom: 100px;
+  position: relative;
+  top: 20px;
 }
 
 .nav ul{list-style-type: none; padding: 0px;}
@@ -59,7 +71,11 @@
   padding-top: 4px;
   padding-bottom: 4px;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: block;
 }
+
 
 .sub-nav-button:hover{
   background: var(--strong_blue);
