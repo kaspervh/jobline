@@ -35,23 +35,23 @@
   <div class="highlight-numbers">
     <p>Antal personlige ansøgninger</p>
     <br>
-    <%= @interview_invites_total %>
+    <%= @applications_in_person %>
   </div>
 
   <div class="highlight-numbers">
     <p>Antal telefoniske ansøgninger</p>
     <br>
-    <%= @interview_invites_total%>
+    <%= @applications_by_phone %>
   </div>
 
   <div class="highlight-numbers">
     <p>Antal skiftlige ansøgninger</p>
     <br>
-    <%= @interview_invites_total %>
+    <%= @applications_written %>
   </div>
 
   <div class="highlight-numbers">
-    <p>Succesrate i %</p>
+    <p>Succes rate i %</p>
     <br>
     <%= @interview_invites_total %>
   </div>
@@ -80,7 +80,7 @@
         <%end%>
 
         <br>
-        <%= link_to 'Slet kontakt', contact, method: :delete, class: 'btn btn-delete'%>
+        <%= link_to 'Slet kontakt', contact, method: :delete, data: { confirm: 'Er du sikker på at du vil slette denne kontakt?' }, class: 'btn btn-delete'%>
       </div>
     <%end%>
   </div>
