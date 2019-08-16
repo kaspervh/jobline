@@ -4,11 +4,65 @@
 
 
 <!--will display a list of contacts if current user has any contacts should allways be at the bootom of the page-->
+<div class="headline">
+  <strong>Nøgletal</strong>
+</div>
+<div class="inline">
+  <div class="highlight-numbers">
+    <p>Ansøgte jobs denne måned</p>
+    <br>
+    <%=@applications_this_month %>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Ansøgte jobs i denne uge</p>
+    <br>
+    <%= @applications_this_week %>
+  </div>
+  
+  <div class="highlight-numbers">
+    <p>Jobsamtale invitationer denne måned</p>
+    <br>
+    <%= @interview_invites_this_month %>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Jobsamtale invitationer i alt</p>
+    <br>
+    <%= @interview_invites_total %>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Antal personlige ansøgninger</p>
+    <br>
+    <%= @interview_invites_total %>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Antal telefoniske ansøgninger</p>
+    <br>
+    <%= @interview_invites_total%>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Antal skiftlige ansøgninger</p>
+    <br>
+    <%= @interview_invites_total %>
+  </div>
+
+  <div class="highlight-numbers">
+    <p>Succesrate i %</p>
+    <br>
+    <%= @interview_invites_total %>
+  </div>
+</div>
+
 <% if @contacts.any? %>
   
   <div class="headline">
     <strong>Kontaktpersoner</strong>
   </div>
+
   <div class="inline">
     <% @contacts.each  do |contact| %>
       <div class="contact-box">

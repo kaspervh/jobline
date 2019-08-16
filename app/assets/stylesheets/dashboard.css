@@ -1,0 +1,10 @@
+.highlight-numbers{
+	font-size: 30px;
+	font-color: var(--skye_blue);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	width: 30%;
+}
