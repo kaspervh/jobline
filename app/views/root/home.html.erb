@@ -1,13 +1,33 @@
 <div class="headline">
   <h1>Dashboard</h1>
 </div>
+<!-- will give a reminder to checkup on currentley applied jobs -->
+  
+  <% if @followup_jobs.any?%>
+    
+    <div class="inline">
+      <div class="headline"><strong>Følg op på jobs</strong></div>
+      <%@followup_jobs.each do |fd| %>
+        <div class="contact-box">
+          <div class="contact-headline">
+            <%= fd.company_name%>
+          </div>
+          <br>
+          <%= "Stilling: #{fd.job_title}" %>
+          <br>
+          <%= "Firma email: #{fd.company_email}"%>
+          <br>
+          <%= "Firma telefon: #{fd.company_phone}"%>
+        </div>
+      <%end%>
+    </div>  
+  <%end%>
+
+<!-- will display key numbers for the current application process -->
 
 
-<!--will display a list of contacts if current user has any contacts should allways be at the bootom of the page-->
-<div class="headline">
-  <strong>Nøgletal</strong>
-</div>
 <div class="inline">
+  <div class="headline"><strong>Nøgletal</strong></div>
   <div class="highlight-numbers">
     <p>Ansøgte jobs denne måned</p>
     <br>
@@ -57,13 +77,11 @@
   </div>
 </div>
 
-<% if @contacts.any? %>
-  
-  <div class="headline">
-    <strong>Kontaktpersoner</strong>
-  </div>
 
+<!--will display a list of contacts if current user has any contacts should allways be at the bootom of the page-->
+<% if @contacts.any? %>
   <div class="inline">
+    <div class="headline"><strong>Kontaktpersoner</strong></div>
     <% @contacts.each  do |contact| %>
       <div class="contact-box">
         <div class="contact-headline">
