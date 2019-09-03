@@ -25,19 +25,34 @@ links = [
          "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&OccupationAreas=Tr%25C3%25A6,%2520m%25C3%25B8bel,%2520glas%2520og%2520keramik",
          "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&OccupationAreas=Undervisning%2520og%2520vejledning",
          "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&OccupationAreas=Vagt,%2520sikkerhed%2520og%2520overv%25C3%25A5gning"
-        ]
-number = 0 
+        ] 
 
+# will loop through each link in the links array
 links.each do |link|
   #Watir.default_timeout = 20
 
+  #will visit the url 
   browser.goto(link.to_s)
 
   puts browser.element(css: '.qualification-remove.ng-binding').text.strip
 
-  number = number + browser.ul(css: '.list-margin-standard').lis.count
+  #holds the job ids
+  job_ids = []
 
-  #puts browser.element(css: '.white-well').text.strip
+  # on the main page of the lob type page the code will loop throug the list of available jobs
+  #will sort away all the teaser text exept the id
+  browser.ul(css: '.list-margin-standard').lis.each{|li| job_ids += li.text.strip.split("\n").select{|line| line.include?('Id:')}.map{|id| id.split(' ')[1..-1].join(' ')}}
+
+  job_ids.each do |id|
+
+    browser.goto("https://job.jobnet.dk/CV/FindWork/Details/#{id}")
+
+    next if browser.url == 'https://job.jobnet.dk/CV/FindWork/JobNotFound'
+
+    puts browser.element(css: '.white-well').text.strip
+  end
+
+  
 end
 
-puts number
+
