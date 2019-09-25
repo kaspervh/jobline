@@ -1,7 +1,7 @@
 require 'watir'
-require 'headless'
-headless = Headless.new
-headless.start
+#require 'headless'
+#headless = Headless.new
+#headless.start
 
 browser = Watir::Browser.new
 
