@@ -1,7 +1,11 @@
 require 'watir'
+require 'headless'
+headless = Headless.new
+headless.start
 
 browser = Watir::Browser.new
 
+# defalut array of jobnet job types
 links = [
          "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&OccupationAreas=Akademisk%2520arbejde", 
          "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&OccupationAreas=Bygge%2520og%2520anl%25C3%25A6g",
@@ -29,8 +33,6 @@ links = [
 
 # will loop through each link in the links array
 links.each do |link|
-  #Watir.default_timeout = 20
-
   #will visit the url 
   browser.goto(link.to_s)
 
@@ -45,26 +47,28 @@ links.each do |link|
   #will sort away all the teaser text exept the id
   browser.ul(css: '.list-margin-standard').lis.each{|li| job_ids += li.text.strip.split("\n").select{|line| line.include?('Id:')}.map{|id| id.split(' ')[1..-1].join(' ')}}
 
-  
   job_ids.each do |id|
-
     browser.goto("https://job.jobnet.dk/CV/FindWork/Details/#{id}")
 
-    # skips if page is blank
+    # skips if page is blank or if id is not recognized
     next if browser.url == 'https://job.jobnet.dk/CV/FindWork/JobNotFound'
+    next if browser.element(css: '.well.white-well.ng-scope').text.strip == 'Der findes ingen annonce med dette ID-nummer.'
 
+    # gets text for contact information
     info_box = browser.element(css: '.job-info-col.well.white-well.no-text-overflow.ng-scope').text.strip
 
+    # skips if there is no email listed
     next if info_box.split("\n").select{|text| text if text && text.include?('Email:')}.first.nil?
+
     # setup variables for db injection
     main_text = browser.element(css: '.white-well').text.strip
     address = ''
     zip = ''
     phone = ''
+    application_deadline = ''
     # grabs the emails from the info_box html element 
     email = info_box.split("\n").select{|text| text if text && text.include?('Email:')}.first.split(' ').last
-    application_deadline = ''
-
+    
     #loops through infobox string array with strings with nomber values in them and puts values into variables
     info_box.split("\n").map{ |info| info if info.count("0-9") > 0}.uniq.each_with_index do |text, i|
       address = text if i == 1
@@ -73,12 +77,10 @@ links.each do |link|
       application_deadline = text.split(' ')[1..-1].join(' ') if text && text.include?('Ansøgningsfrist:')
     end
     
-    # will create a db element for the job posting
-    JobPosting.first_or_create(job_type_id: JobType.find_by_name(job_type_name).id , main_text: main_text, address: address, zip: zip, phone: phone, email: email, application_deadline: application_deadline)
-    
+    # will pyt data into job posting db table
+    JobPosting.where(job_type_id: JobType.find_by_name(job_type_name).id, main_text: main_text, address: address, zip: zip, phone: phone, email: email, application_deadline: application_deadline).first_or_create
   end
-
-  
 end
+
 
 

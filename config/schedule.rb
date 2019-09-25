@@ -23,3 +23,7 @@
 every 1.day at: '1:00 am' do 
   runner "AppliedJob.reject_old_applied_jobs"
 end 
+
+every :hour do 
+  script_runner "./script/jobnet_scraper.rb"
+end

@@ -32,7 +32,7 @@ class CreateJobTypes < ActiveRecord::Migration[5.2]
                 ]
 
     job_types.each do |jt|
-      JobType.first_or_create(name: jt)
+      JobType.where(name: jt).first_or_create
     end
   end
 end

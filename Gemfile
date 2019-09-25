@@ -31,6 +31,7 @@ gem 'csv'
 gem 'nokogiri'
 gem 'httparty'
 gem 'watir'
+gem 'headless'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'awesome_print'
