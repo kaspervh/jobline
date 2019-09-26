@@ -1,7 +1,4 @@
 require 'watir'
-#require 'headless'
-#headless = Headless.new
-#headless.start
 
 browser = Watir::Browser.new
 
@@ -55,10 +52,10 @@ links.each do |link|
     next if browser.element(css: '.well.white-well.ng-scope').text.strip == 'Der findes ingen annonce med dette ID-nummer.'
 
     # gets text for contact information
-    info_box = browser.element(css: '.job-info-col.well.white-well.no-text-overflow.ng-scope').text.strip
+    info_box = browser.element(css: '.job-info-col.well.white-well.no-text-overflow.ng-scope').text.strip.split("\n")
 
     # skips if there is no email listed
-    next if info_box.split("\n").select{|text| text if text && text.include?('Email:')}.first.nil?
+    next if info_box.select{|text| text if text && text.include?('Email:')}.first.nil?
 
     # setup variables for db injection
     main_text = browser.element(css: '.white-well').text.strip
@@ -67,18 +64,21 @@ links.each do |link|
     phone = ''
     application_deadline = ''
     # grabs the emails from the info_box html element 
-    email = info_box.split("\n").select{|text| text if text && text.include?('Email:')}.first.split(' ').last
-    
+    email = info_box.select{|text| text if text && text.include?('Email:')}.first.split(' ').last
+    #grabs the company name
+    company_name = ''
+    info_box.each_with_index{|text, i| company_name = info_box[i+1] if text == 'Arbejdsgiver'}
+   
     #loops through infobox string array with strings with nomber values in them and puts values into variables
-    info_box.split("\n").map{ |info| info if info.count("0-9") > 0}.uniq.each_with_index do |text, i|
+    info_box.map{ |info| info if info.count("0-9") > 0}.uniq.each_with_index do |text, i|
       address = text if i == 1
       zip = text.split(' ').first if i == 2
       phone = text.split(' ').last if text && text.include?("Hovednummer:")
       application_deadline = text.split(' ')[1..-1].join(' ') if text && text.include?('Ansøgningsfrist:')
     end
-    
+
     # will pyt data into job posting db table
-    JobPosting.where(job_type_id: JobType.find_by_name(job_type_name).id, main_text: main_text, address: address, zip: zip, phone: phone, email: email, application_deadline: application_deadline).first_or_create
+    JobPosting.where(job_type_id: JobType.find_by_name(job_type_name).id, main_text: main_text, address: address, zip: zip, phone: phone, email: email, application_deadline: application_deadline, company_name: company_name).first_or_create
   end
 end
 
