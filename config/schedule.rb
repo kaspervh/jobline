@@ -25,5 +25,5 @@ every 1.day at: '1:00 am' do
 end 
 
 every :hour do 
-  runner "./script/jobnet_scraper.rb"
+  script "./script/jobnet_scraper.rb"
 end
