@@ -85,6 +85,11 @@ a:visited{
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  border-radius: 15px;
+}
+
+.btn:hover{
+  color: var(--skye_blue)
 }
 
 .btn-delete{

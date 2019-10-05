@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   resources :applied_jobs
   root 'root#home'
   get '/welcome' =>'root#welcome'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   namespace :user do
     resources :standart_applications, only: [:create, :update]
   end
+
+  resources :job_postings, only: [:index]
 
 
 end

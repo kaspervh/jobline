@@ -20,7 +20,7 @@
       <input type="checkbox" id="nav-fold">
       <div class="nav-button">Job</div>
       <div class="fold-content">
-        <div class="sub-nav-button">Check jobbank (-)</div>
+        <%=link_to 'Jobbank', job_postings_path, class: 'sub-nav-button' %>
         <div class="sub-nav-button" onclick="openReportAppliedJob()">Repporter Jobsøgning</div>
         <% if current_user.applied_jobs.any? %>
             <%= link_to 'Vis søgte jobs', applied_jobs_path, class: 'sub-nav-button' %>

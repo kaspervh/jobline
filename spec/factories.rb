@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :postal_code do
+    name "MyString"
+    number "MyString"
+  end
   factory :application_status do
     name "MyString"
   end
