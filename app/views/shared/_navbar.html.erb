@@ -6,12 +6,7 @@
 
     <!--renders modals for use in every page-->
     <div class="modal-wrapper">
-      <%= render partial: 'shared/modals/edit_user_settings' %>
-      <%= render partial: 'shared/modals/edit_user_password' %>
-      <%= render partial: 'shared/modals/add_contact'%>
-      <%= render partial: 'shared/modals/report_applied_job' %>
-      <%= render partial: 'shared/modals/add_standart_application'%>
-      <%= render partial: 'shared/modals/edit_standart_application'%>
+      <%= render partial: 'shared/modal'%>
     </div>
 
     <%= link_to 'Dashboard', root_path, class: 'nav-button' %>
@@ -21,14 +16,14 @@
       <div class="nav-button">Job</div>
       <div class="fold-content">
         <%=link_to 'Jobbank', job_postings_path, class: 'sub-nav-button' %>
-        <div class="sub-nav-button" onclick="openReportAppliedJob()">Repporter Jobsøgning</div>
+        <div class="sub-nav-button" onclick="openModal('/applied_jobs/new')">Repporter Jobsøgning</div>
         <% if current_user.applied_jobs.any? %>
             <%= link_to 'Vis søgte jobs', applied_jobs_path, class: 'sub-nav-button' %>
         <%end%>
         <% if current_user.standart_application %>
-          <div class="sub-nav-button" onclick="openEditStandartApplication()">Rediger standart ansøgning</div>
+          <div class="sub-nav-button" onclick="openModal('/user/standart_applications/1/edit')">Rediger standart ansøgning</div>
         <%else%>
-          <div class="sub-nav-button" onclick="openAddStandartApplication()">Tilføj standart ansøgning</div>
+          <div class="sub-nav-button" onclick="openModal('/user/standart_applications/new')">Tilføj standart ansøgning</div>
         <% end %>
       </div>
     </div>
@@ -49,13 +44,11 @@
       <div class="nav-button">Indstillinger</div>
       <div class="fold-content">
         <!--will trigger onclick event for edit_user_settings in shared/modals folder-->
-        <div class="sub-nav-button" onclick="openUserSettings()">
+        <div class="sub-nav-button" onclick="openModal('/users/1/edit')">
           Rediger oplysninger
         </div>
-        <!--will trigger onclick event for edit_user_password in shared/modals folder-->
-        <div class="sub-nav-button" onclick="openUserPassword()">Skift Kodeord</div>
         <!--will trigger onclick event for add_contact in shared/modals folder-->
-        <div class="sub-nav-button" onclick="addContact()">Tilføj kontaktperson</div>
+        <div class="sub-nav-button" onclick="openModal('/contacts/new')">Tilføj kontaktperson</div>
       </div>
     </div>
   </div>

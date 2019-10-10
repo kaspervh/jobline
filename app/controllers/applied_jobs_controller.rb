@@ -1,5 +1,7 @@
 class AppliedJobsController < ApplicationController
   before_action :set_applied_job, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  layout 'empty', only: [:new, :show]
 
   def index
     @applied_jobs = AppliedJob.all

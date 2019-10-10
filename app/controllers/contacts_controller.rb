@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  layout 'empty', only: [:new]
 
   def new
     @contact = Contact.new

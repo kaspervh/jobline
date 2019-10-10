@@ -1,6 +1,12 @@
 class User::StandartApplicationsController < ApplicationController
   before_action :set_user_standart_application, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  layout 'empty'
 
+  def new
+    @user_standart_application = User::StandartApplication.new
+  end
+  
   def create
     @user_standart_application = User::StandartApplication.new(user_standart_application_params)
 
@@ -9,6 +15,10 @@ class User::StandartApplicationsController < ApplicationController
     else
       render :new 
     end
+  end
+
+  def edit
+    
   end
 
   def update

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  layout 'forms'
+  layout 'forms', only: [:new]
+  layout 'empty', only: [:edit]
 
 
   def new
@@ -15,6 +16,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
 
   def update
     @user = User.find(params[:id])

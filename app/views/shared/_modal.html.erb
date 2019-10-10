@@ -1,0 +1,33 @@
+<div class="modal-background" id="modal">
+  <div class="modal-box">
+
+  </div>
+</div>
+
+
+
+<script>
+
+
+  // will open modal when onclick event in navbar triggers
+  function openModal(path){
+    document.querySelector('#modal').style.display = 'block';
+    function openFile(url){
+       fetch(`${url}`).then(response => response.text()).then(data => {
+        document.querySelector('.modal-box').innerHTML = data
+      } ).catch(error => console.log(error))
+    }
+    openFile(path)
+  };
+  
+  // when modal is opened it will colse the modal if you clik on the close button or the 
+  document.querySelector('#modal').addEventListener('click', (e) => {
+    if(e.target.className === 'modal-background' || e.target.className === 'close-modal' ){
+      modal.style.display = 'none';
+      document.querySelector('.modal-box').innerHTML = '';
+    }
+
+  })
+  
+
+</script>
