@@ -1,118 +1,117 @@
 <p id="notice"><%= notice %></p>
 <div class="content">
-  <div class="center">
-    
-    <% if @interview.any? %>
-      <h1>Job interview</h1>
+  
+  <% if @interview.any? %>
+    <h1>Job interview</h1>
 
-      <table>
-        <thead>
+    <table>
+      <thead>
+        <tr>
+          <th>Job titel</th>
+          <th>Firma navn</th>
+          <th>Application type</th>
+          <th>Application status</th>
+          <th>Opdater</th>
+          <th>Slet</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @interview.each do |applied_job| %>
           <tr>
-            <th>Job titel</th>
-            <th>Firma navn</th>
-            <th>Application type</th>
-            <th>Application status</th>
-            <th>Opdater</th>
-            <th>Slet</th>
+            <td><%= applied_job.job_title %></td>
+            <td><%= applied_job.company_name %></td>
+            <td><%= applied_job.application_type_id %></td>
+            <td><%= applied_job.application_status_id %></td>
+            <td>
+              <%= simple_form_for applied_job do |f| %>
+                <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                <%= f.submit value: 'Gem', class: 'submit' %>
+              <%end%>
+            </td>
+            <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: ' btn btn-delete' %></td>
           </tr>
-        </thead>
+        <% end %>
+      </tbody>
+    </table>
 
-        <tbody>
-          <% @interview.each do |applied_job| %>
-            <tr>
-              <td><%= applied_job.job_title %></td>
-              <td><%= applied_job.company_name %></td>
-              <td><%= applied_job.application_type_id %></td>
-              <td><%= applied_job.application_status_id %></td>
-              <td>
-                <%= simple_form_for applied_job do |f| %>
-                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
-                  <%= f.submit value: 'Gem', class: 'submit' %>
-                <%end%>
-              </td>
-              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: ' btn btn-delete' %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <br>
+  <%end%>
 
-      <br>
-    <%end%>
+  <% if @awating.any? %>
+    <h1>Afventer svar</h1>
 
-    <% if @awating.any? %>
-      <h1>Afventer svar</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Job titel</th>
+          <th>Firma navn</th>
+          <th>Application type</th>
+          <th>Application status</th>
+          <th>Opdater</th>
+          <th>Slet</th>
+        </tr>
+      </thead>
 
-      <table>
-        <thead>
+      <tbody>
+        <% @awating.each do |applied_job| %>
           <tr>
-            <th>Job titel</th>
-            <th>Firma navn</th>
-            <th>Application type</th>
-            <th>Application status</th>
-            <th>Opdater</th>
-            <th>Slet</th>
+            <td><%= applied_job.job_title %></td>
+            <td><%= applied_job.company_name %></td>
+            <td><%= applied_job.application_type.name %></td>
+            <td><%= applied_job.application_status.name %></td>
+            <td>
+              <%= simple_form_for applied_job do |f| %>
+                <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                <%= f.submit value: 'Gem', class: 'submit'%>
+              <%end%>
+            </td>
+            <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: 'btn btn-delete' %></td>
           </tr>
-        </thead>
+        <% end %>
+      </tbody>
+    </table>
 
-        <tbody>
-          <% @awating.each do |applied_job| %>
-            <tr>
-              <td><%= applied_job.job_title %></td>
-              <td><%= applied_job.company_name %></td>
-              <td><%= applied_job.application_type.name %></td>
-              <td><%= applied_job.application_status.name %></td>
-              <td>
-                <%= simple_form_for applied_job do |f| %>
-                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
-                  <%= f.submit value: 'Gem', class: 'submit'%>
-                <%end%>
-              </td>
-              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: 'btn btn-delete' %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <br>
+  <%end%>
 
-      <br>
-    <%end%>
+  <% if @rejected.any? %>
+    <h1> Afviste ansøgninger</h1>
 
-    <% if @rejected.any? %>
-      <h1> Afviste ansøgninger</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Job titel</th>
+          <th>Firma navn</th>
+          <th>Application type</th>
+          <th>Application status</th>
+          <th>Opdater</th>
+          <th>Slet</th>
+        </tr>
+      </thead>
 
-      <table>
-        <thead>
+      <tbody>
+        <% @rejected.each do |applied_job| %>
           <tr>
-            <th>Job titel</th>
-            <th>Firma navn</th>
-            <th>Application type</th>
-            <th>Application status</th>
-            <th>Opdater</th>
-            <th>Slet</th>
+            <td><%= applied_job.job_title %></td>
+            <td><%= applied_job.company_name %></td>
+            <td><%= applied_job.application_type_id %></td>
+            <td><%= applied_job.application_status_id %></td>
+            <td>
+              <%= simple_form_for applied_job do |f| %>
+                <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
+                <%= f.submit value: 'Gem', class: 'submit' %>
+              <%end%>
+            </td>
+            <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: 'btn btn-delete' %></td>
           </tr>
-        </thead>
+        <% end %>
+      </tbody>
+    </table>
 
-        <tbody>
-          <% @rejected.each do |applied_job| %>
-            <tr>
-              <td><%= applied_job.job_title %></td>
-              <td><%= applied_job.company_name %></td>
-              <td><%= applied_job.application_type_id %></td>
-              <td><%= applied_job.application_status_id %></td>
-              <td>
-                <%= simple_form_for applied_job do |f| %>
-                  <%= f.input :application_status_id, as: :radio_buttons, collection: @application_satus.select{|as| as.id != applied_job.application_status_id}, label: false, input_html:{id: :radio } %>
-                  <%= f.submit value: 'Gem', class: 'submit' %>
-                <%end%>
-              </td>
-              <td><%= link_to 'Slet', applied_job, method: :delete, data: { confirm: 'Er du sikker på at du vil slette det søgte job?' }, class: 'btn btn-delete' %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <br>
+  <%end%>
 
-      <br>
-    <%end%>
 
-  </div>
 
 </div>
