@@ -27,6 +27,6 @@ class RootController < ApplicationController
    	@applications_by_phone = @applied_jobs.where(application_type_id: 1).count
    	@applications_in_person = @applied_jobs.where(application_type_id: 2).count
    	@applications_written = @applied_jobs.where(application_type_id: 3).count
-   	@succes_rate = @applied_jobs.any? ? @applied_jobs.where(application_status_id:2).count / (@applied_jobs.where(application_status_id: 1).count + @applied_jobs.where(application_status_id: 3).count) * 100 : 0 
+   	#@succes_rate = @applied_jobs.any? ? @applied_jobs.where(application_status_id:2).count / (@applied_jobs.where(application_status_id: 1).count + @applied_jobs.where(application_status_id: 3).count) * 100 : 0 
   end
 end

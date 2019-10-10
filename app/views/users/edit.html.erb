@@ -1,0 +1,16 @@
+<div class="modal-headder">
+    <div class="close-modal">&times</div>
+    <h1>Rediger brugeroplysninger</h1>
+</div>
+<div class="modal-container">
+
+    <%= simple_form_for :user, url: users_update_path(id: current_user) do |f| %>
+    <%= f.input :first_name, label: false, placeholder: 'Fornavn:' %>
+    <%= f.input :last_name, label: false , placeholder: 'Efternavn:' %>
+    <%= f.input :email, label: false, placeholder: 'Email addrasse:' %>
+    <%= f.input :password, label: false, placeholder: 'Kodeord:' %>
+    <%= f.input :password_confirmation, label: false, placeholder: 'Gentag kodeord:' %>
+    <%= f.submit value: 'Gem ændringer', class: 'submit'  %>
+    <%end%>
+    
+</div>

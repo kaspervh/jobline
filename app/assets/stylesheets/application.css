@@ -44,12 +44,7 @@ a:visited{
 }
 
 /* handles content next to navbar and will only contain palcement css*/
-
-.content{
-  overflow-x: auto;
-}
-
-.content .headline{
+.headline{
   width: 100%;
   text-align: center;
   margin-bottom: 5px;
