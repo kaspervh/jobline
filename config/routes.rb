@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :standart_applications, only: [:new, :create, :edit, :update]
   end
 
-  resources :job_postings, only: [:index]
+  resources :job_postings, only: [:index, :show]
 
   resources :applied_jobs
 

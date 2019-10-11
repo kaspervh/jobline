@@ -77,6 +77,13 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.modal-center-text{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 #radio{
   transition: none;
   width: 20px;

@@ -87,7 +87,9 @@ a:visited{
 }
 
 .btn:hover{
-  color: var(--skye_blue)
+  color: var(--skye_blue);
+  background: var(--strong_blue);
+  cursor: pointer;
 }
 
 .btn-delete{

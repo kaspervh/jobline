@@ -6,7 +6,7 @@
   </div>
   <% @job_postings.reverse_each do |jp| %>
     <div class="job-box">
-      <div class="job-info">
+      <div class="job-info" >
         <div class="job-headline">
           <%= jp.main_text.split("\n").first%>
         </div>
@@ -26,7 +26,8 @@
         </div>
       </div>
       <div class="job-button-box">
-        <a href="#" class="btn">Se jobbet</a>
+        <%path = "/job_postings/#{jp.id}"%>
+        <%= "<div class='btn' onClick='openModal(`#{path}`)'>Se jobbet</div>".html_safe%>
       </div>
     </div>
     <br>

@@ -1,0 +1,13 @@
+<div class="modal-headder">
+  <div class="close-modal">&times</div>
+  <h1>Se job</h1>
+</div>
+<div class="modal-container">
+  <div class="modal-center-text">
+    <%= @job_posting.main_text.gsub(/\n/, '<br>').html_safe %>
+    <br>
+    <br>
+    <%= link_to 'Søg Jobbet', new_applied_job_path, class: 'btn'%>
+  </div>
+</div>
+
