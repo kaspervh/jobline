@@ -7,7 +7,8 @@
     <%= @job_posting.main_text.gsub(/\n/, '<br>').html_safe %>
     <br>
     <br>
-    <%= link_to 'Søg Jobbet', new_applied_job_path, class: 'btn'%>
+    <% path = "/applied_jobs/new?job_posting_id=#{@job_posting.id}"%>
+    <%= "<div class='btn' onClick='openModal(`#{path}`)'>Se jobbet</div>".html_safe%>
   </div>
 </div>
 

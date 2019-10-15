@@ -13,6 +13,9 @@ class AppliedJobsController < ApplicationController
 
   def new
     @applied_job = AppliedJob.new
+    @job_posting = JobPosting.find(params[:job_posting_id]) if params[:job_posting_id].present?
+    @application_types = ApplicationType.all
+    @application_statuses = ApplicationStatus.all
   end
 
   def create
@@ -36,6 +39,6 @@ class AppliedJobsController < ApplicationController
     end
 
     def applied_job_params
-      params.require(:applied_job).permit(:user_id, :job_id, :job_title, :company_name, :application, :application_type_id, :application_status_id)
+      params.require(:applied_job).permit(:user_id, :job_id, :job_title, :company_name, :company_phone, :company_email, :application, :application_type_id, :application_status_id)
     end
 end

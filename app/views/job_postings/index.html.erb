@@ -5,37 +5,36 @@
       <%end%>
   </div>
   <table>
-  <tbody>
-  </tbody>
-  <% @job_postings.reverse_each do |jp| %>
-    <td class="job-box">
-      <div class="job-info" >
-        <div class="job-headline">
-          <%= jp.main_text.split("\n").first%>
-        </div>
-        <div class="job-main-text">
-          <%= "#{jp.main_text[0..500]}..."%>
-        </div>
-        <div class="job-data">
-          <div class="job-zip-code">
-            <strong><%= "Postnummer: #{jp.zip}"%></strong>
+    <tbody>
+      <% @job_postings.reverse_each do |jp| %>
+        <td class="job-box">
+          <div class="job-info" >
+            <div class="job-headline">
+              <%= jp.main_text.split("\n").first%>
+            </div>
+            <div class="job-main-text">
+              <%= "#{jp.main_text[0..500]}..."%>
+            </div>
+            <div class="job-data">
+              <div class="job-zip-code">
+                <strong><%= "Postnummer: #{jp.zip}"%></strong>
+              </div>
+              <div class="job-company">
+                <strong><%= "Arbejdsgiver: #{jp.company_name} "%></strong>
+              </div>
+              <div class="job-type">
+                <%="Jobtype: #{jp.job_type.name}"%>
+              </div>
+            </div>
           </div>
-          <div class="job-company">
-            <strong><%= "Arbejdsgiver: #{jp.company_name} "%></strong>
+          <div class="job-button-box">
+            <%path = "/job_postings/#{jp.id}"%>
+            <%= "<div class='btn' onClick='openModal(`#{path}`)'>Se jobbet</div>".html_safe%>
           </div>
-          <div class="job-type">
-            <%="Jobtype: #{jp.job_type.name}"%>
-          </div>
-        </div>
-      </div>
-      <div class="job-button-box">
-        <%path = "/job_postings/#{jp.id}"%>
-        <%= "<div class='btn' onClick='openModal(`#{path}`)'>Se jobbet</div>".html_safe%>
-      </div>
-    <br>
-  <%end%>
-  </td>
-  </tbody>
+        <br>
+      <%end%>
+      </td>
+    </tbody>
   </table>
   
 </div>
