@@ -7,47 +7,42 @@
       <p>Hvis du har søgt et job uden for jobline kan du repportere dette her.</p>
   </div>
 
-  <%= form_for :applied_job, url: applied_jobs_path do |f| %>
+  <%= simple_form_for @applied_job do |f| %>
 
-  <%= f.hidden_field :user_id, as: :hidden, placeholder: 'bruger id', value: current_user.id%>
-  <%= f.text_field :job_title, placeholder: 'Job titel' %>
-  <%= f.text_field :company_name, placeholder: 'Firma navn' %>
-  <%= f.text_field :company_phone, placeholder: 'Firma tlf nummer' %>
-  <%= f.text_field :company_email, placeholder: 'Firma email' %>
+    <%= f.input :user_id, as: :hidden, placeholder: 'bruger id', input_html:{value: current_user.id}%>
+    <%= f.input :job_title, placeholder: 'Job titel', label: false, input_html:{value: (@job_posting.main_text.split(/\n/).first if @job_posting)} %>
+    <%= f.input :company_name, placeholder: 'Firma navn', label: false, input_html:{value: (@job_posting.company_name if @job_posting)}%>
+    <%= f.input :company_phone, placeholder: 'Firma tlf nummer', label: false,input_html:{value: (@job_posting.phone if @job_posting)} %>
+    <%= f.input :company_email, placeholder: 'Firma email', label: false, input_html:{value: (@job_posting.email if @job_posting)} %>
 
-  <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge den ind her' %>
-  <br>
-  <br>
+    <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge din ansøgning ind her', value: current_user.standart_application.content %>
+    <br>
+    <br>
 
 
-  <div class="modal-description">
-      <strong>hvordan er jobbet søgt?</strong>
-      <p>Har du ansøgt personligt, telefonisk eller har du afleveret en ansøgning?</p>
-      <p>noter det her så det kan blive medregnet i din jobsøgningsstatistik</p>
-  </div>
-  <div class="modal-inline">
-      <% ApplicationType.all.each do |at| %>
+    <div class="modal-description">
+        <strong>hvordan er jobbet søgt?</strong>
+        <p>Har du ansøgt personligt, telefonisk eller har du afleveret en ansøgning?</p>
+        <p>noter det her så det kan blive medregnet i din jobsøgningsstatistik</p>
+    </div>
+    <div class="modal-inline">
       <div class="box">
-      <%= f.label at.name %>
-      <%= f.radio_button :application_type_id, at.id, id: "radio"%>
+        <%= f.input :application_type_id, collection: @application_types, as: :radio_buttons, label: false%>
       </div>
-      <%end%>
-  </div>
+      
+    </div>
 
-  <div class="modal-description">
+    <div class="modal-description">
       <strong>Hvad er status for din ansøgning?</strong>
-  </div>
+    </div>
 
-  <div class="modal-inline">
-      <%ApplicationStatus.all.each do |as| %>
-      <div class="box">
-          <%= f.label as.name %>
-          <%= f.radio_button :application_status_id, as.id %>
-      </div> 
-      <%end%>
-  </div>
+    <div class="modal-inline">
+        <div class="box">
+          <%= f.input :application_status_id, collection: @application_statuses, as: :radio_buttons, label: false%>
+        </div> 
+    </div>
 
-  <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
+    <%= f.submit value: 'Gem ansøgning', class: 'submit'%>
   <%end%>
 </div>
 
