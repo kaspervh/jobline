@@ -15,7 +15,7 @@
     <%= f.text_field :company_phone, placeholder: 'Firma tlf nummer', value: (@job_posting.phone if @job_posting) %>
     <%= f.text_field :company_email, placeholder: 'Firma email', value: (@job_posting.email if @job_posting) %>
 
-    <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge din ansøgning ind her', value: current_user.standart_application.content %>
+    <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge din ansøgning ind her' %>
     <br>
     <br>
 
