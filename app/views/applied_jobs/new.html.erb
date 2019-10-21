@@ -7,7 +7,7 @@
       <p>Hvis du har søgt et job uden for jobline kan du repportere dette her.</p>
   </div>
 
-  <%= form_for :applied_job, url: applied_jobs_path do |f| %>
+  <%= form_for @applied_job do |f| %>
 
     <%= f.hidden_field :user_id, as: :hidden, placeholder: 'bruger id', value: current_user.id%>
     <%= f.text_field :job_title, placeholder: 'Job titel', value: (@job_posting.main_text.split(/\n/).first if @job_posting) %>
@@ -15,7 +15,7 @@
     <%= f.text_field :company_phone, placeholder: 'Firma tlf nummer', value: (@job_posting.phone if @job_posting) %>
     <%= f.text_field :company_email, placeholder: 'Firma email', value: (@job_posting.email if @job_posting) %>
 
-    <%= f.rich_text_area :application, placeholder: 'Hvis du har andsøgt skriftligt, så kan du ligge din ansøgning ind her' %>
+    <%= rich_text_area_tag :'applied_job[application]', @standart_application %>
     <br>
     <br>
 
@@ -51,9 +51,4 @@
   <%end%>
 </div>
 
-<script>
-  document.querySelector('.close-modal').addEventListener('click', () => {
-    document.querySelector('#modal').style.display = 'none';
-  })
-  
-</script>
+<script defer>console.log('diller');</script>
