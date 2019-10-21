@@ -16,6 +16,7 @@ class AppliedJobsController < ApplicationController
     @job_posting = JobPosting.find(params[:job_posting_id]) if params[:job_posting_id].present?
     @application_types = ApplicationType.all
     @application_statuses = ApplicationStatus.all
+    @standart_application = current_user.standart_application.content.body.html_safe
   end
 
   def create
