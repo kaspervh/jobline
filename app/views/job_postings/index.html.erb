@@ -1,7 +1,7 @@
 <div class="inline">
   <div class="job-search-box">
       <%=simple_form_for :search, url: job_postings_path, method: 'post' do |f|%>
-        <%= f.input :job_type, collection: @job_types%>
+        <%= f.input :job_type, collection: @job_types, value_method: :name%>
         <%post_numbers = {
           'Region Hovedstaden'.to_sym => ["0783", "0800", "0900", "0913", "0914", "0917", "0960", '0999', 1000, 1050, 1051, 1052, 1053,
                                           1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066,
@@ -129,27 +129,38 @@
       </td>
     </tbody>
   </table>
-  
+  <br>
+  <br>
 </div>
 
 <script>
+  // define search fields
   const searchJobTypes = document.getElementById('search_job_type');
+  const searchPostnumbers = document.getElementById('search_post_numbers');
 
-  searchJobTypes.addEventListener('change', searchForJobTypes);
-
-  function searchForJobTypes() {
+  // setup event listener
+  searchJobTypes.addEventListener('change', searchForJobs);
+  searchPostnumbers.addEventListener('change', searchForJobs);
+  
+  function searchForJobs() {
     let jobs = document.querySelectorAll('.job-box');
 
-    if(searchJobTypes.value == ''){
+    if(searchJobTypes.value == '' && searchPostnumbers.value == ''){
       jobs.forEach(job => {
         job.style.display = 'flex';
       });
     }else{
       jobs.forEach(job => {
-        if(job.querySelector('.job-type').innerHTML.replace('Jobtype:','').includes(searchJobTypes.options[this.selectedIndex].innerHTML)){
-          job.style.display = 'flex';
-          
-          
+        // makes the boolean logic
+        let jobTypeView = job.querySelector('.job-type').innerHTML.replace('Jobtype:','').includes(searchJobTypes.value)
+        let postNumberView = searchPostnumbers.value.includes(parseInt(job.querySelector('.job-zip-code').innerHTML.replace('Postnummer: ', '')))
+
+        if(postNumberView && jobTypeView || searchPostnumbers.value == '' && jobTypeView || searchJobTypes.value == '' && postNumberView){
+          console.log(searchJobTypes.options[this.selectedIndex].innerHTML)
+          console.log(jobTypeView)
+          console.log(searchPostnumbers.value)
+          console.log(postNumberView)
+          job.style.display = 'flex';          
         }else{
           job.style.display = 'none';
           job.style.overflow = 'hidden';
@@ -160,25 +171,3 @@
 
 </script>
 
-<script>
-  const searchPostnumbers = document.getElementById('search_post_numbers')
-  searchPostnumbers.addEventListener('change', () => {
-    console.log(searchPostnumbers.value)
-     const jobs = document.querySelectorAll('.job-box');
-
-    if(searchPostnumbers.value == ''){
-      jobs.forEach(job => {
-        job.style.display = 'flex';
-      });
-    }else{
-      jobs.forEach(job => {
-        let pNumber = parseInt(job.querySelector('.job-zip-code').innerHTML.replace('Postnummer: ', ''));
-        if(searchPostnumbers.value.includes(pNumber)){
-          job.style.display = 'flex';
-        }else{
-          job.style.display = 'none';
-        }
-      });
-    }
-  });
-</script>
