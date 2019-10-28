@@ -4,6 +4,7 @@ class JobPostingsController < ApplicationController
   def index
     @job_postings = JobPosting.all
     @job_types = JobType.all
+    @post_numbers = AreaCode.all_area_codes
   end
 
   def show
