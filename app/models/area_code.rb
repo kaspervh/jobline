@@ -1,6 +1,6 @@
 class AreaCode < ApplicationRecord
   def self.all_area_codes
-    dk_regions + dk_cities
+    dk_regions.merge(dk_cities)
   end
 
   def self.dk_regions
