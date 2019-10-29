@@ -1,7 +1,9 @@
 <div class="inline">
   <div class="job-search-box">
       <%=simple_form_for :search, url: job_postings_path, method: 'post' do |f|%>
-        <%= f.input :job_type, collection: @job_types%>
+        <%= f.input :job_type, collection: @job_types, value_method: :name, label: false,  prompt: 'Job Type'%>
+       <br> 
+        <%= f.input :post_numbers, collection: @post_numbers, label: false, prompt: 'Område' %>
       <%end%>
   </div>
   <table>
@@ -17,7 +19,7 @@
             </div>
             <div class="job-data">
               <div class="job-zip-code">
-                <strong><%= "Postnummer: #{jp.zip}"%></strong>
+                <%= "Postnummer: #{jp.zip}"%>
               </div>
               <div class="job-company">
                 <strong><%= "Arbejdsgiver: #{jp.company_name} "%></strong>
@@ -36,29 +38,34 @@
       </td>
     </tbody>
   </table>
-  
+  <br>
+  <br>
 </div>
 
 <script>
+  // define search fields
   const searchJobTypes = document.getElementById('search_job_type');
+  const searchPostnumbers = document.getElementById('search_post_numbers');
 
-  searchJobTypes.addEventListener('change', searchForJobTypes);
-
-  function searchForJobTypes(params) {
+  // setup event listener
+  searchJobTypes.addEventListener('change', searchForJobs);
+  searchPostnumbers.addEventListener('change', searchForJobs);
+  
+  function searchForJobs() {
     let jobs = document.querySelectorAll('.job-box');
 
-    if(searchJobTypes.value == ''){
+    if(searchJobTypes.value == '' && searchPostnumbers.value == ''){
       jobs.forEach(job => {
         job.style.display = 'flex';
       });
     }else{
       jobs.forEach(job => {
-        if(job.querySelector('.job-type').innerHTML.replace('Jobtype:','').includes(searchJobTypes.options[this.selectedIndex].innerHTML)){
-          job.style.display = 'flex';
-          job.style.display = 'flex';
-          
+        // makes the boolean logic
+        let jobTypeView = job.querySelector('.job-type').innerHTML.replace('Jobtype:','').includes(searchJobTypes.value)
+        let postNumberView = searchPostnumbers.value.includes(parseInt(job.querySelector('.job-zip-code').innerHTML.replace('Postnummer: ', '')))
 
-          
+        if(postNumberView && jobTypeView || searchPostnumbers.value == '' && jobTypeView || searchJobTypes.value == '' && postNumberView){
+          job.style.display = 'flex';          
         }else{
           job.style.display = 'none';
           job.style.overflow = 'hidden';
@@ -68,3 +75,4 @@
   }
 
 </script>
+

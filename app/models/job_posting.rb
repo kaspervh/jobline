@@ -1,3 +1,113 @@
 class JobPosting < ApplicationRecord
-    belongs_to :job_type
+  belongs_to :job_type
+
+  def post_numbers 
+    {
+      
+      
+      'København C' => ['0877', '0900', '0910', '0929', '0999'],
+      
+      'København K' => [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1045, 1050, 1051, 1052, 1053,
+                        1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1092, 1093, 1095, 1098, 1100, 1101, 1102, 1103, 1104, 1105,
+                        1106, 1107, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1140, 1147, 1148, 1150, 1151, 1152, 1153,
+                        1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1164, 1165, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208,
+                        1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1240, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1259, 1260, 1261, 1263, 1264, 1265, 1266, 1267, 1268, 
+                        1270, 1271, 1300, 1301, 1302, 1303, 1304, 1306, 1307, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318, 1319, 1320, 1321, 1322, 1323, 1324, 1325, 1326, 1327, 1328, 
+                        1329, 1350, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364, 1365, 1366, 1367, 1368, 1369, 1370, 1371, 1400, 1401, 1402, 1403, 1406, 1407, 1408, 1409, 1410, 
+                        1411, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420, 1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430, 1432, 1433, 1434, 1435, 1436, 1437, 1438, 1439, 1440, 1441, 
+                        1448, 1450, 1451, 1452, 1453, 1454, 1455, 1456, 1457, 1458, 1459, 1460, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1470, 1471, 1472, 1473],
+
+      'København V' => [1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1532, 1533, 1550, 1551, 1552, 1553, 1554, 1555, 1556, 1557, 1558, 1559, 1560, 1561, 1561, 1562, 1563, 1564, 1567, 1568,
+                        1569, 1570, 1570, 1571, 1572, 1573, 1574, 1575, 1576, 1577, 1592, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613, 1614, 1615, 1616, 1617, 1618,
+                        1619, 1620, 1620, 1621, 1622, 1623, 1624, 1630, 1631, 1632, 1633, 1634, 1635, 1650, 1651, 1652, 1653, 1654, 1655, 1657, 1658, 1659, 1660, 1661, 1662, 1663, 1664, 1665, 1666, 1667, 1668,
+                        1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676, 1677, 1699, 1700, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1714, 1715, 1716, 1717, 1718, 1719, 1720, 1721,
+                        1722, 1723, 1724, 1725, 1726, 1727, 1728, 1729, 1730, 1731, 1732, 1733, 1734, 1735, 1736, 1737, 1738, 1739, 1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761,
+                        1762, 1763, 1764, 1765, 1766, 1770, 1771, 1772, 1773, 1774, 1775, 1777, 1780, 1782, 1785, 1786, 1787, 1790, 1799],
+      
+      'Frederiksberg C' => [1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813, 1814, 1815, 1816, 1817, 1818, 1819, 1820, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829,
+                            1835, 1850, 1851, 1852, 1853, 1854, 1855, 1856, 1857, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1870, 1871, 1872, 1873, 1874, 1875, 1876, 1877, 1878, 1879, 1900,
+                            1901, 1902, 1903, 1904, 1905, 1906, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1931, 1950, 1951, 1952,
+                            1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1970, 1971, 1972, 1973, 1974],
+      
+      #'Frederiksberg' => [2000], 'København Ø' => [2100], 'Nordhavn' => [2150], 'København N' => [2200], 'København S' => [2300], 'København NV'=> [2400], 'København SV' => [2450], 'Grønland' => [2412],
+      #'Valby' => [2500], 'Glostrup' => [2600], 'Brøndby' => [2605], 'Rødovre' => [2610], 'Albertslund' => [2620], 'Vallensbæk' => [2625], 'Taastrup' => [2630], 'Ishøj' => [2635], 'Hedehusene' => [2640],
+      #'Hvidovre' => [2650], 'Brøndby Strand' => [2660], 'Vallensbæk Strand' => [2665], 'Greve' => [2670], 'Solrød Strand' => [2680], 'Karlslunde' => [2690], 'Brønshøj' => [2700], 'Vanløse' => [2720],
+      #'Herlev' => [2730], 'Skovlunde' => [2740], 'Ballerup' => [2750], 'Måløv' => [2760], 'Smørum' => [2765], 'Kastrup' => [2770], 'Dragør' => [2791], 'Kongens Lyngby' => [2800], 'Gentofte' => [2820],
+      #'Virum' => [2830], 'Holte' => [2840], 'Nærum' => [2850], 'Søborg' => [2860], 'Dyssegård' => [2870], 'Bagsværd' => [2880], 'Hellerup' => [2900], 'Charlottenlund' => [2920], 'Klampenborg' => [2930],
+      #'Skodsborg' => [2942], 'Vedbæk' => [2950], 'Rungsted Kyst' => [2960], 'Hørsholm' => [2970], 'Kokkedal' => [2980], 'Nivå' => [2990], 'Helsingør' => [3000], 'Humlebæk' => [3050] 'Espergærde' => [3060],
+      #'Snekkersten' => [3070], 'Tikøb' => [3080], 'Hornbæk' => [3100], 'Dronningmølle' => [3120], 'Ålsgårde' => [3140], 'Hellebæk' => [3150], 'Helsinge' => [3200], 'Vejby' => [3210], 'Tisvildeleje' => [3220],
+      #'Græsted' => [3230], 'Gilleleje' => [3250], 'Frederiksværk' => [3300], 'Ølsted' => [3310], 'Skævinge' => [3320], 'Gørløse' => [3330], 'Liseleje' => [3360], 'Melby' => [3370], 'Hundested' => [3390]
+      #'Hillerød' => [3400], 'Allerød' => [3450], 'Birkerød' => [3460], 'Fredensborg' => [3480], 'Kvistgård' => [3490], 'Værløse' => [3500], 'Farum' => [3520], 'Lynge' => [3540], 'Slangerup' => [3550], 'Frederikssund' => [3600],
+      #'Jægerspris' => [3630], 'Ølstykke' => [3650], 'Stenløse' => [3660], 'Veksø Sjælland' => [3670], 'Rønne' => [3700], 'Aakirkeby' => [3720], 'Nexø' => [3730], 'Svaneke' => [3740], 'Østermarie' => [3751],
+      #'Gudhjem' => [3760], 'Allinge' => [3770], 'Klemensker' => [3782], 'Hasle' => [3790], 'Roskilde' => [4000], 'Tune' => [4030], 'Jyllinge' => [4040], 'Skibby' => [4050], 'Kirke Såby' => [4060],
+      #'Kirke Hyllinge' => [4070], 'Ringsted' => [4100], 'Ringsted' => [4129], 'Viby Sjælland' => [4130], 'Borup' => [4140], 'Herlufmagle' => [4160], 'Glumsø' => [4171], 'Fjenneslev' => [4173], 'Jystrup Midtsj' => [4174],
+      #'Sorø' => [4180], 'Munke Bjergby' => [4190], 'Slagelse' => [4200], 'Korsør' => [4220], 'Skælskør' => [4230], 'Vemmelev' => [4241], 'Boeslunde' => [4242], 'Rude' => [4243], 'Agersø' => [4244], 
+      #'Omø' => [4245], 'Fuglebjerg' => [4250], 'Dalmose' => [4261], 'Sandved' => [4262], 'Høng' => [4270], 'Gørlev' => [4281], 'Ruds Vedby' => [4291], 'Dianalund' => [4293], 'Stenlille' => [4295], 
+      #'Nyrup' => [4296], 'Holbæk' => [4300], 'Orø' => [4305], 'Lejre' => [4320], 'Hvalsø' => [4330], 'Tølløse' => [4340], 'Ugerløse' => [4350], 'Kirke Eskilstrup' => [4360], 'Store Merløse' => [4370],
+      #'Vipperød' => [4390], 'Kalundborg' => [4400], 'Regstrup' => [4420], 'Mørkøv' => [4440], 'Jyderup' => [4450], 'Snertinge' => [4460], 'Svebølle' => [4470], 'Store Fuglede' => [4480], 'Jerslev Sjælland' => [4490],
+      #'Nykøbing Sj' => [4500], 'Svinninge' => [4520], 'Gislinge' => [4532], 'Hørve' => [4534], 'Fårevejle' => [4540], 'Asnæs' => [4550], 'Vig' => [4560], 'Grevinge' => [4571], 'Nørre Asmindrup' => [4572],
+      #'Højby' => [4573], 'Rørvig' => [4581], 'Sjællands Odde' => [4583], 'Føllenslev' => [4591], 'Sejerø' => [4592], 'Eskebjerg' => [4593], 'Køge' => [4600], 'Gadstrup' => [4621], 'Havdrup' => [4622],
+      #'Lille Skensved' => [4623], 'Bjæverskov' => [4632], 'Faxe' => [4640], 'Hårlev' => [4652], 'Karise' => [4653], 'Faxe Ladeplads' => [4654], 'Store Heddinge' => [4660], 'Strøby' => [4671], 'Klippinge' => [4672],
+      #'Rødvig Stevns' => [4673], 'Herfølge' => [4681], 'Tureby' => [4682], 'Rønnede' => [4683], 'Holmegaard' => [4684], 'Haslev' => [4690], 'Næstved' => [4700], 'Præstø' => [4720], 'Tappernøje' => [4733],
+      #'Mern' => [4735], 'Karrebæksminde' => [4736], 'Lundby' => [4750], 'Vordingborg' => [4760], 'Kalvehave' => [4771], 'Langebæk' => [4772], 'Stensved' => [4773], 'Stege' => [4780], 'Borre' => [4791]
+      #'Askeby' => [4792], 'Bogø By' => [4793], 'Nykøbing F' => [4800], 'Nørre Alslev' => [4840], 'Stubbekøbing' => [4850], 'Guldborg' => [4862], 'Eskilstrup' => [4863], 'Horbelev' => [4871], 'Idestrup' => [4872],
+      #'Væggerløse' => [4873], 'Gedser' => [4874], 'Nysted' => [4880], 'Toreby L' => [4891], 'Kettinge' => [4892], 'Øster Ulslev' => [4894], 'Errindlev' => [4895], 'Nakskov' => [4900], 'Harpelunde' => [4912],
+      #'Horslunde' => [4913], 'Søllested' => [4920], 'Maribo' => [4930], 'Bandholm' => [4941], 'Askø og Lilleø' => [4942], 'Torrig L' => [4943], 'Fejø' => [4944], 'Femø' => [4945], 'Nørreballe' => [4951],
+      #'Stokkemarke' => [4952], 'Vesterborg' => [4953], 'Holeby' => [4960], 'Rødby' => [4970], 'Dannemare' => [4983], 'Sakskøbing' => [4990], 'Odense' => [5000, 5029, 5100, 5200, 5210,	5220, 5230, 5240, 5250, 5260, 5270],
+      #'Marslev' => [5290], 'Kerteminde' => [5300], 'Agedrup' => [5320], 'Munkebo' => [5330], 'Rynkeby' => [5350], 'Mesinge' => [5370], 'Dalby' => [5380], 'Martofte' => [5390], 'Bogense' => [5400],'Otterup' => [5450],
+      #'Morud' => [5462], 'Harndrup' => [5463], 'Brenderup Fyn' => [5464], 'Asperup' => [5466], 'Søndersø' => [5471], 'Veflinge' => [5474], 'Skamby' => [5485], 'Blommenslyst' => [5491],
+      #'Vissenbjerg' => [5492], 'Middelfart' => [5500], 'Ullerslev' => [5540], 'Langeskov' => [5550], 'Aarup' => [5560], 'Nørre Aaby' => [5580], 'Gelsted' => [5591], 'Ejby' => [5592], 'Faaborg' => [5600], 'Lyø' => [5601],
+      #'Avernakø' => [5602], 'Bjørnø' => [5603], 'Assens' => [5610], 'Glamsbjerg' => [5620], 'Ebberup' => [5631], 'Millinge' => [5642], 'Broby' => [5672], 'Haarby' => [5683], 'Tommerup' => [5690], 'Svendborg' => [5700],
+      #'Ringe' => [5750], 'Vester Skerninge' => [5762], 'Stenstrup' => [5771], 'Kværndrup' => [5772], 'Årslev' => [5792], 'Nyborg' => [5800], 'Ørbæk' => [5853], 'Gislev' => [5854], 'Ryslinge' => [5856], 
+      #'Ferritslev Fyn' => [5863], 'Frørup' => [5871], 'Hesselager' => [5874], 'Skårup Fyn' => [5881], 'Vejstrup' => [5882], 'Oure' => [5883],  'Gudme' => [5884], 'Gudbjerg Sydfyn' => [5892], 'Rudkøbing' => [5900],
+      #'Humble' => [5932], 'Bagenkop' => [5935], 'Strynø' => [5943], 'Tranekær' => [5953], 'Marstal' => [5960], 'Birkholm' => [5965], 'Ærøskøbing' => [5970], 'Søby Ærø' => [5985], 'Kolding' => [6000], 'Egtved' => [6040],
+      #'Almind' => [6051], 'Viuf' => [6052], 'Jordrup' => [6064], 'Christiansfeld' => [6070], 'Bjert' => [6091], 'Sønder Stenderup' => [6092], 'Sjølund' => [6093], 'Hejls' => [6094], 'Haderslev' => [6100], 'Aabenraa' => [6200],
+      #'Barsø' => [6210], 'Rødekro' => [6230], 'Løgumkloster' => [6240], 'Bredebro' => [6261], 'Tønder' => [6270], 'Højer' => [6280], 'Gråsten' => [6300], 'Broager' => [6310], 'Egernsund' => [6320],
+      #'Padborg' => [6330], 'Kruså' => [6340], 'Tinglev' => [6360], 'Bylderup-Bov' => [6372], 'Bolderslev' => [6392], 'Sønderborg' => [6400], 'Nordborg' => [6430], 'Augustenborg' => [6440], 'Sydals' => [6470], 'Vojens' => [6500],
+      #'Gram' => [6510], 'Toftlund' => [6520], 'Agerskov' => [6534], 'Branderup J' => [6535], 'Bevtoft' => [6541], 'Sommersted' => [6560], 'Vamdrup' => [6580], 'Vejen' => [6600], 'Gesten' => [6621], 'Bække' => [6622],
+      #'Vorbasse' => [6623], 'Rødding' => [6630], 'Lunderskov' => [6640], 'Brørup' => [6650], 'Lintrup' => [6660], 'Holsted' => [6670], 'Hovborg' => [6682], 'Føvling' => [6683], 'Gørding' => [6690],
+      #'Esbjerg' => [6700, 6701, 6705, 6710, 6715], 'Fanø' => [6720], 'Tjæreborg' => [6731], 'Bramming' => [6740], 'Glejbjerg' => [6752], 'Agerbæk' => [6753], 'Ribe' => [6760], 'Gredstedbro' => [6771], 'Skærbæk' => [6780],
+      #'Rømø' => [6792], 'Varde' => [6800], 'Årre' => [6818], 'Ansager' => [6823], 'Nørre Nebel' => [6830], 'Oksbøl' => [6840], 'Janderup Vestj' => [6851], 'Billum' => [6852], 'Vejers Strand' => [6853], 'Henne' => [6854],
+      #'Outrup' => [6855], 'Blåvand' => [6857], 'Tistrup' => [6862], 'Ølgod' => [6870], 'Tarm' => [6880], 'Hemmet' => [6893], 'Skjern' => [6900], 'Videbæk' => [6920], 'Kibæk' => [6933], 'Lem St' => [6940], 'Ringkøbing' =>[6950],
+      #'Hvide Sande' => [6960], 'Spjald' => [6971], 'Ørnhøj' =>[6973], 'Tim' => [6980], 'Ulfborg' => [6990], 'Fredericia' => [7000, 7007, 7017], 'Børkop' => [7080], 'Vejle' => [7100, 7120], 'Juelsminde' => [7130],
+      #'Stouby' => [7140], 'Barrit' => [7150], 'Tørring' => [7160], 'Uldum' => [7171], 'Vonge' => [7173], 'Bredsten' => [7182], 'Randbøl' =>[7183], 'Vandel' => [7184], 'Billund' => [7190], 'Grindsted' => [7200],
+      #'Hejnsvig' => [7250], 'Sønder Omme' => [7260], 'Stakroge' => [7270], 'Sønder Felding' => [7280], 'Jelling' => [7300], 'Gadbjerg' => [7321], 'Give' =>[7323], 'Brande' => [7330], 'Ejstrupholm' => [7361]
+      #'Hampen' => [7362], 'Herning' => [7400, 7429], 'Ikast' => [7430], 'Bording' => [7441], 'Engesvang' => [7442], 'Sunds' => [7451], 'Karup J' => [7470], 'Vildbjerg' => [7480], 'Aulum' => [7490], 'Holstebro' => [7500],
+      #'Haderup' => [7540], 'Sørvad' => [7550], 'Hjerm' =>[7560], 'Vemb' => [7570], 'Struer' => [7600], 'Lemvig' =>[7620], 'Bøvlingbjerg' => [7650], 'Bækmarksbro' => [7660], 'Harboøre' => [7673], 
+      #'Thyborøn' => [7680], 'Thisted' => [7700], 'Hanstholm' => [7730], 'Frøstrup' => [7741], 'Vesløs' => [7742], 'Snedsted' => [7752], 'Bedsted Thy' => [7755], 'Hurup Thy' => [7760], 'Vestervig' => [7770],
+      #'Thyholm' => [7790], 'Skive' => [7800], 'Vinderup' => [7830], 'Højslev' => [7840], 'Stoholm Jyll' => [7850], 'Spøttrup' => [7860], 'Roslev' => [7870], 'Fur' => [7884], 'Nykøbing M' => [7900], 'Erslev' => [7950], 
+      #'Karby' => [7960], 'Redsted M' => [7970], 'Vils' => [7980], 'Øster Assels' => [7990], 'Aarhus' => [8000, 8100, 8200, 8210], 'Brabrand' => [8220], 'Risskov' =>[8229, 8240, 8245], 'Åbyhøj' => [8230], 'Egå' => [8250],
+      #'Viby J' => [8260], 'Højbjerg' => [8270], 'Odder' => [8300], 'Samsø' => [8305], 'Tranbjerg J'=>[8310], 'Mårslet' => [8320], 'Beder' => [8330], 'Malling' => [8340], 'Hundslund'=> [8350], 'Solbjerg' => [8355],
+      #'Hasselager' => [8361], 'Hørning' => [8362], 'Hadsten' => [8370], 'Trige' => [8380], 'Tilst' => [8381], 'Hinnerup' =>[8382], 'Ebeltoft' => [8400], 'Rønde' => [8410], 'Knebel' => [8420], 'Balle' => [8444], 
+      #'Hammel' => [8450],  'Harlev J' => [8462], 'Galten' => [8464], 'Sabro' => [8471], 'Sporup' => [8472], 'Grenaa' => [8500], 'Lystrup' => [8520], 'Hjortshøj' => [8530], 'Skødstrup' => [8541], 'Hornslet' => [8543],
+      #'Mørke' => [8544], 'Ryomgård' => [8550], 'Kolind' => [8560], 'Trustrup' => [8570], 'Nimtofte' => [8581], 'Glesborg' => [8585], 'Ørum Djurs' => [8586], 'Anholt' => [8592], 'Silkeborg' => [8600], 'Kjellerup' => [8620],
+      #'Lemming' => [8632], 'Sorring' => [8641], 'Ans By' => [8643], 'Them' => [8653], 'Bryrup' => [8654], 'Skanderborg' => [8660], 'Låsby' => [8670], 'Ry' => [8680], 'Horsens' => [8700], 'Daugård' => [8721], 
+      #'Hedensted' => [8722], 'Løsning' => [8723], 'Hovedgård' => [8732], 'Brædstrup' => [8740], 'Gedved' => [8751], 'Østbirk' => [8752], 'Flemming' => [8762], 'Rask Mølle' => [8763], 'Klovborg' => [8765], 'Nørre Snede' => [8766],
+      #'Stenderup' => [8781], 'Hornsyld' => [8783], 'Endelave' => [8789], 'Tunø' => [8799], 'Viborg' => [8800], 'Tjele' =>[8830], 'Løgstrup' => [8831], 'Skals' => [8832], 'Rødkærsbro' => [8840], 'Bjerringbro' => [8850],
+      #'Ulstrup' => [8860], 'Langå' =>[8870], 'Thorsø' => [8881], 'Fårvang' => [8882], 'Gjern' => [8883], 'Randers' => [8900, 8920, 8930, 8940, 8960], 'Ørsted' => [8950], 'Allingåbro' => [8961], 'Auning' => [8963], 'Havndal' => [8970],
+      #'Spentrup' => [8981], 'Gjerlev J' => [8983], 'Fårup' => [8990], 'Aalborg' => [9000, 9029,	9100,	9200,	9210, 9220], 'Svenstrup J' => [9230], 'Nibe' => [9240], 'Gistrup' => [9260], 'Klarup' => [9270],
+      #'Storvorde' => [9280], 'Kongerslev' => [9293], 'Sæby' => [9300], 'Vodskov' => [9310], 'Hjallerup' => [9320], 'Dronninglund' => [9330], 'Asaa' => [9340], 'Dybvad' => [9352], 'Gandrup' => [9362],
+      #'Hals' => [9370], 'Vestbjerg' => [9380], 'Sulsted' => [9381], 'Tylstrup' => [9382], 'Nørresundby' => [9400], 'Vadum' =>[9430], 'Aabybro' =>[9440], 'Brovst' =>[9460], 'Løkken' =>[9480], 'Pandrup' => [9490],
+      #'Blokhus' => [9492], 'Saltum' =>[9493], 'Hobro' => [9500], 'Arden' => [9510], 'Skørping' => [9520], 'Støvring' => [9530], 'Suldrup' =>[9541], 'Mariager' => [9550], 'Hadsund' => [9560], 'Bælum' => [9574],
+      #'Terndrup' => [9575], 'Aars' => [9600], 'Nørager' => [9610], 'Aalestrup' => [9620], 'Gedsted' => [9631], 'Møldrup' =>[9632], 'Farsø' => [9640], 'Løgstør' => [9670], 'Ranum' => [9681], 'Fjerritslev' => [9690],
+      #'Brønderslev' => [9700], 'Jerslev J' => [9740], 'Østervrå' => [9750], 'Vrå' =>[9760], 'Hjørring' => [9800], 'Tårs' =>[9830], 'Hirtshals' => [9850], 'Sindal' => [9870], 'Bindslev' => [9881], 'Frederikshavn' => [9900],
+      #'Læsø' => [9940], 'Strandby' => [9970], 'Jerup' => [9981], 'Ålbæk' => [9982], 'Skagen' => [9990], 'Nuuk' => [3900], 'Nuussuaq' => [3905], 'Kangerlussuaq' =>[3910], 'Sisimiut'=>[3911], 'Maniitsoq' => [3912], 'Tasiilaq' => [3913],
+      #'Kulusuk' => [3915], 'Alluitsup Paa' => [3919], 'Qaqortoq' => [3920], 'Narsaq' => [3921], 'Nanortalik' => [3922], 'Narsarsuaq' => [3923], 'Ikerasassuaq' =>[3924], 'Kangilinnguit' => [3930],
+      #'Arsuk' => [3932], 'Paamiut' => [3940], 'Aasiaat' => [3950], 'Qasigiannguit' => [3951], 'Ilulissat' =>[3952], 'Qeqertarsuaq' => [3953], 'Kangaatsiaq' =>[3955], 'Uummannaq'=>[3961],'Upernavik' =>[3962], 'Qaarsut' =>[3964],
+      #'Pituffik' => [3970], 'Qaanaaq' => [3971], 'Station Nord' =>[3972], 'Ittoqqortoormiit' => [3980], 'Mestersvig' => [3982], 'Danmarkshavn' => [3984], 'Constable Pynt' => [3985], 'Tórshavn' => [100, 110], 'Argir' => [160, 165], 
+      #'Kirkjubøur' => [175], 'Velbastadur' =>[176], 'Sydradalur, Streymoy' => [177], 'Nordradalur' => [178], 'Kaldbak' => [180], 'Kaldbaksbotnur' => [185], 'Sund' => [186], 'Hvitanes' => [187],
+      #'Hoyvík' => [188], 'Sandur' => [210, 215], 'Skálavík' => [220], 'Húsavík' => [230], 'Dalur' => [235], 'Skarvanes' => [236], 'Skopun' => [240], 'Skúvoy' => [260], 'Nólsoy' => [270], 'Hestur' => [280],
+      #'Koltur' => [285], 'Stóra Dimun' => [286], 'Stykkid' => [330], 'Leynar' => [335], 'Skællingur' => [336], 'Kvívík' => [340], 'Vestmanna' =>[350, 355], 'Válur' => [358], 'Sandavágur' => [360], 'Midvágur' => [370, 375] 'Sørvágur' => [380]
+      #'Vatnsoyrar' => [385], 'Bøur' => [386], 'Gásadalur' => [387], 'Mykines'=> [388], 'Oyrarbakki' => [400, 405], 'Kollafjørdur'=> [410], 'Oyrareingir' => [415], 'Signabøur' => [416], 'Hósvík' => [420],
+      #'Hvalvík' => [430], 'Streymnes' => [435], 'Saksun' => [436], 'Nesvík' => [437], 'Langasandur' => [438], 'Haldarsvík' =>[440], 'Tjørnuvík' =>[445], 'Oyri' => [450], 'Nordskáli' =>[460], 'Svináir' => [465]
+      #'Ljósá' => [466], 'Eidi' => [470], 'Funningur' => [475], 'Gjógv' => [476], 'Funningsfjørdur' => [477], 'Elduvík' =>[478], 'Skáli' => [480], 'Skálafjørdur' => [485], 'Strendur' => [490], 'Innan Glyvur' => [494],
+      #'Kolbanargjógv' => [495], 'Morskranes' => [496], 'Selatrad' => [497], 'Gøta' =>[510], 'Gøtugjógv' => [511], 'Nordragøta' =>[512], 'Sydrugøta' => [513], 'Gøta' =>[515], 'Leirvík' => [520], 
+      #'Fuglafjørdur' =>[530, 535], 'Saltangará' =>[600, 610], 'Runavík' => [620], 'Glyvrar' => [625], 'Lambareidi' => [626], 'Lambi'=>[627], 'Rituvík' =>[640], 'Æduvík' =>[645], 'Toftir' =>[650],
+      #'Nes, Eysturoy' =>[655], 'Saltnes' => [656], 'Søldarfjørdur' =>[660], 'Skipanes' =>[665], 'Gøtueidi' =>[666], 'Oyndarfjørdur' =>[690], 'Hellur' => [695], 'Klaksvík' =>[700, 710], 'Nordoyri' =>[725],
+      #'Ánir' => [726], 'Árnafjørdur' =>[727], 'Norddepil' =>[730], 'Depil' =>[735], 'Nordtoftir' => [736], 'Múli' => [737], 'Hvannasund' =>[740], 'Vidareidi' => [750], 'Svinoy' => [765],
+      #'Kirkja' => [766], 'Hattarvík' =>[767], 'Kunoy' => [780], 'Haraldssund' =>[785], 'Sydradalur, Kalsoy' =>[795], 'Húsar' =>[796], 'Mikladalur' =>[797], 'Trøllanes' =>[798], 'Tvøroyri' =>[800, 810]
+      #'Frodba' =>[825], 'Trongisvágur' =>[826], 'Øravík' => [827], 'Hvalba' => [850], 'Sandvík' => [860], 'Fámjin' => [870], 'Vágur' =>[900, 910], 'Nes, Vágur' =>[925], 'Lopra' =>[926], 
+      #'Akrar' => [927], 'Vikarbyrgi' =>[928], 'Porkeri' => [950], 'Hov' => [960], 'Sumba' =>[970]
+    }
+  end
 end
