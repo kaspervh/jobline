@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout 'forms', only: [:new]
-  layout 'empty', only: [:edit]
+  
 
 
   def new
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    layout 'edit'
   end
 
   def update
