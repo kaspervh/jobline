@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  layout 'forms', only: [:new]
-  
+  layout :choose_layout
 
 
   def new
@@ -17,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    layout 'edit'
+    
   end
 
   def update
@@ -33,6 +32,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def choose_layout
+    return 'forms' if action_name == 'new'
+    return 'empty' if action_name == 'edit'
   end
 
 end
