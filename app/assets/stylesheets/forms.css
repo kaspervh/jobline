@@ -56,20 +56,19 @@ form{
 input{
   margin-bottom: 10px;
   box-shadow: none;
-  border: 3px solid var(--grey_blue);
+  border: none;
+  border-bottom: 1px solid black;
   text-align: center;
   height: 20px;
-  width: 120px;
-  border-radius: 20px;
-  transition: width .8s;
+  width: 200px;
   color: var(--grey_blue);
-  background: white;
   margin-left: auto;
   margin-right:auto;
 }
 
 form input:focus{
-  width: 200px;
+  outline: none; 
+  border-bottom: 1px solid var(--skye_blue)
 }
 
 .submit{
