@@ -31,4 +31,3 @@ JobPosting.all.each do |jp|
   end
   
 end
-puts JobPosting.all.count
